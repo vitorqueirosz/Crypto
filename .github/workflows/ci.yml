@@ -1,35 +1,32 @@
-name: CI workflow
+ name: Complete Workflow
+ on: [push]
 
-on:
-  push:
-    branches:
-      - main
+ jobs:
 
-jobs:
   build:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  strategy:
-    matrix:
-      node-version: [14.x]
+    strategy:
+      matrix:
+        node-version: [14.x]
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+    - uses: actions/checkout@v2
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+    - name: Install dependencies
         run: yarn install
 
-      - name: Running Linting
-        run: yarn lint
+    - name: Running Linting
+      run: yarn lint
 
-      - name: Running Typecheck
-        run: yarn typecheck
+    - name: Running Typecheck
+      run: yarn typecheck
 
-      - name: Build
-        run: yarn build
+    - name: Build
+      run: yarn build
