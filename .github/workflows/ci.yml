@@ -28,5 +28,8 @@
     - name: Running Typecheck
       run: yarn typecheck
 
+    - name: Running Test
+      run: yarn test
+
     - name: Build
       run: yarn build
