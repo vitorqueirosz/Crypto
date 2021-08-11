@@ -1,4 +1,5 @@
-import { screen, render } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithTheme } from 'utils/tests/render';
 import { Coin, CoinProps } from './Coin';
 
 const props: CoinProps = {
@@ -10,7 +11,7 @@ const props: CoinProps = {
 
 describe('<Coin />', () => {
   it('should render the component successfully', () => {
-    render(<Coin {...props} />);
+    renderWithTheme(<Coin {...props} />);
 
     expect(screen.getByRole('img', { name: props.title }));
     expect(screen.getByText(props.title));
