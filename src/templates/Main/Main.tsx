@@ -1,10 +1,13 @@
-import { Header } from 'components';
+import { Container, Header } from 'components';
+
 import * as S from './Main.styles';
 
 export const Main = () => {
   return (
-    <S.Wrapper>
-      <Header items={[]} />
-    </S.Wrapper>
+    <Container>
+      <S.Wrapper>
+        <Header items={[]} />
+      </S.Wrapper>
+    </Container>
   );
 };
