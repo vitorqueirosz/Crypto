@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react';
+import { CoinProps } from 'constants/types/coin';
 import { renderWithTheme } from 'utils/tests/render';
-import { Coin, CoinProps } from './Coin';
+import { Coin } from './Coin';
 
 const props: CoinProps = {
   id: '1',

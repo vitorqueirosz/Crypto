@@ -3,7 +3,7 @@ import * as S from './Coin.styles';
 
 export const Coin = ({ title, details, image }: CoinProps) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper title={title}>
       <S.Image loading="lazy" src={image} alt={title} />
       <S.Aside>
         <p>{title}</p>
