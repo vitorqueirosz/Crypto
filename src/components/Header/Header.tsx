@@ -16,7 +16,7 @@ export const Header = ({ title = 'Mais lidas', items }: HeaderProps) => {
         <span>{title}</span>
         <S.CoinList>
           {items.map((item) => (
-            <Coin key={item.id} {...item} />
+            <Coin key={item.id} size="small" {...item} />
           ))}
         </S.CoinList>
       </S.Content>

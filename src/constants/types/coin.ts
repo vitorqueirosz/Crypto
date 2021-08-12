@@ -3,4 +3,5 @@ export type CoinProps = {
   title: string;
   details: string;
   image: string;
+  size?: 'normal' | 'small';
 };

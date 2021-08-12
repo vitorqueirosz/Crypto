@@ -15,6 +15,7 @@ export default {
     normal: 400,
     bold: 600,
     sizes: {
+      '2xs': '1rem',
       xs: '1.2rem',
       sm: '1.4rem',
       md: '1.6rem',

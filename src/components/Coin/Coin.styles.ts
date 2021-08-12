@@ -1,13 +1,34 @@
 import { EllipsisMultiLine } from 'components/EllipsisMultiline/EllipsisMultiline';
-import styled, { css } from 'styled-components';
+import { CoinProps } from 'constants/types/coin';
+import styled, { css, DefaultTheme } from 'styled-components';
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    display: flex;
+const wrapperProps = {
+  small: (theme: DefaultTheme) => css`
+    height: 80px;
+    width: 300px;
+
+    ${Title} {
+      font-size: ${theme.font.sizes.sm};
+      -webkit-line-clamp: 3;
+    }
+
+    ${Details} {
+      font-size: ${theme.font.sizes['2xs']};
+    }
+  `,
+  normal: () => css`
     height: 115px;
+    width: 360px;
+  `,
+};
+
+export const Wrapper = styled.div<Pick<CoinProps, 'size'>>`
+  ${({ theme, size }) => css`
+    display: flex;
     max-height: 100%;
     background: ${theme.colors.secondary};
-    width: 360px;
+
+    ${size && wrapperProps[size](theme)}
   `}
 `;
 
@@ -22,18 +43,18 @@ export const Aside = styled.div`
     flex-direction: column;
     height: 100%;
     padding: ${theme.spacings['2xs']} ${theme.spacings.xs};
-
-    p {
-      color: ${theme.colors.white};
-      ${EllipsisMultiLine}
-      -webkit-line-clamp: 4;
-    }
-
-    small {
-      display: flex;
-      flex: 1;
-      align-items: flex-end;
-      color: ${theme.colors.gray};
-    }
   `}
+`;
+
+export const Title = styled.p`
+  color: ${({ theme }) => theme.colors.white};
+  ${EllipsisMultiLine}
+  -webkit-line-clamp: 4;
+`;
+
+export const Details = styled.small`
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  color: ${({ theme }) => theme.colors.gray};
 `;
