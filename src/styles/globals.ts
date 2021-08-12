@@ -1,5 +1,6 @@
 import {
   createGlobalStyle,
+  css,
   DefaultTheme,
   GlobalStyleComponent,
 } from 'styled-components';
@@ -21,7 +22,14 @@ export const GlobalStyles: GlobalStyleComponent<
     }
   }
 
-  html {
-    font-size: 62.5%;
-  }
+  ${({ theme }) => css`
+    body {
+      font-size: ${theme.font.sizes.md};
+      background: ${theme.colors.primary};
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+  `}
 `;
