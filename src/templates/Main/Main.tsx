@@ -1,4 +1,4 @@
-import { Container, Header } from 'components';
+import { Container, Header, CurrencySection } from 'components';
 
 import * as S from './Main.styles';
 
@@ -17,6 +17,7 @@ export const Main = () => {
     <Container>
       <S.Wrapper>
         <Header items={items} />
+        <CurrencySection />
       </S.Wrapper>
     </Container>
   );
