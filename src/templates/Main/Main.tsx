@@ -18,7 +18,12 @@ export const Main = () => {
       <S.Wrapper>
         <Header items={items} />
         <CurrencySection />
-        <CoinSection bitcoin={[]} ethereum={[]} cardano={[]} others={[]} />
+        <CoinSection
+          bitcoin={items}
+          ethereum={items}
+          cardano={items}
+          others={items}
+        />
       </S.Wrapper>
     </Container>
   );

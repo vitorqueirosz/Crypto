@@ -1,6 +1,6 @@
 export default {
   grid: {
-    container: '13.6rem',
+    container: '130.6rem',
     gutter: '3.2rem',
   },
   borderRadius: {
@@ -36,6 +36,7 @@ export default {
     gray: '#A1A1A1',
     darkGray: '#2E2F42',
     red: '#FF6347',
+    gold: '#F2F0C2',
   },
   spacings: {
     '2xs': '0.8rem',

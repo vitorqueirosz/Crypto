@@ -5,5 +5,7 @@ export const Container = styled.div`
     width: 100%;
     max-width: ${theme.grid.container};
     height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
   `}
 `;
