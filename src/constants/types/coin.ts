@@ -5,3 +5,5 @@ export type CoinProps = {
   image: string;
   size?: 'normal' | 'small';
 };
+
+export type Coins = 'bitcoin' | 'ethereum' | 'cardano' | 'others';

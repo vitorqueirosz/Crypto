@@ -1,4 +1,4 @@
-import { Container, Header, CurrencySection } from 'components';
+import { Container, Header, CurrencySection, CoinSection } from 'components';
 
 import * as S from './Main.styles';
 
@@ -18,6 +18,7 @@ export const Main = () => {
       <S.Wrapper>
         <Header items={items} />
         <CurrencySection />
+        <CoinSection bitcoin={[]} ethereum={[]} cardano={[]} others={[]} />
       </S.Wrapper>
     </Container>
   );
