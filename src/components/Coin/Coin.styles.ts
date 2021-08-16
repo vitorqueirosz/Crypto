@@ -9,7 +9,7 @@ const wrapperProps = {
 
     ${Title} {
       font-size: ${theme.font.sizes.sm};
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
     }
 
     ${Details} {

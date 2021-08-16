@@ -3,7 +3,7 @@ import { Coin } from 'components';
 
 import * as S from './Section.styles';
 
-type SectionProps = {
+export type SectionProps = {
   title: string;
   items: CoinProps[];
 };
