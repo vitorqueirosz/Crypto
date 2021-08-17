@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Section = styled.div`
   ${({ theme }) => css`
-    display: flex;
-    align-items: center;
     width: 100%;
     border-top: 1px solid ${theme.colors.gray};
     margin-top: ${theme.spacings.xs};
@@ -16,4 +14,11 @@ export const SubTitle = styled.h3`
     color: ${theme.colors.gold};
     margin-bottom: ${theme.spacings.xs};
   `}
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
 `;

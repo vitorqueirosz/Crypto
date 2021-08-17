@@ -19,9 +19,11 @@ export const Section = ({ title, items }: SectionProps) => {
   return (
     <S.Section>
       <S.SubTitle>{coinsTitle[title]}</S.SubTitle>
-      {items.map((item) => (
-        <Coin key={item.id} {...item} />
-      ))}
+      <S.Content>
+        {items.map((item) => (
+          <Coin key={item.id} {...item} />
+        ))}
+      </S.Content>
     </S.Section>
   );
 };

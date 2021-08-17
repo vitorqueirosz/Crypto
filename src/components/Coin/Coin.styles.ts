@@ -5,7 +5,8 @@ import styled, { css, DefaultTheme } from 'styled-components';
 const wrapperProps = {
   small: (theme: DefaultTheme) => css`
     height: 80px;
-    width: 300px;
+    min-width: 360px;
+    width: 360px;
 
     ${Title} {
       font-size: ${theme.font.sizes.sm};
@@ -18,6 +19,7 @@ const wrapperProps = {
   `,
   normal: () => css`
     height: 115px;
+    min-width: 360px;
     width: 360px;
   `,
 };
