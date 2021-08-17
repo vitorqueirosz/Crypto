@@ -1,4 +1,5 @@
 import { Container, Header, CurrencySection, CoinSection } from 'components';
+import { CoinProps, Coins } from 'constants/types/coin';
 
 import * as S from './Main.styles';
 
@@ -12,17 +13,21 @@ const items = [
   },
 ];
 
-export const Main = () => {
+export type MainProps = {
+  [key in Coins]: CoinProps[];
+};
+
+export const Main = ({ bitcoin, ethereum, cardano, others }: MainProps) => {
   return (
     <Container>
       <S.Wrapper>
         <Header items={items} />
         <CurrencySection />
         <CoinSection
-          bitcoin={items}
-          ethereum={items}
-          cardano={items}
-          others={items}
+          bitcoin={bitcoin}
+          ethereum={ethereum}
+          cardano={cardano}
+          others={others}
         />
       </S.Wrapper>
     </Container>

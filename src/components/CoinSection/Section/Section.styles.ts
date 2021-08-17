@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const Section = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
     width: 100%;
     border-top: 1px solid ${theme.colors.gray};
     margin-top: ${theme.spacings.xs};
