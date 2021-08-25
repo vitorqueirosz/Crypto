@@ -1,3 +1,4 @@
+import { QueryCoins, QueryCoinsVariables } from 'graphql/generated/QueryCoins';
 import { QUERY_COINS } from 'graphql/queries/coins';
 import { GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
@@ -11,10 +12,11 @@ export default function Home(props: MainProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const client = initializeApolloClient();
 
-  const { data } = await client.query({
+  const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
     query: QUERY_COINS,
     variables: {
       limit: 5,
+      sort: 'created_at',
     },
   });
 

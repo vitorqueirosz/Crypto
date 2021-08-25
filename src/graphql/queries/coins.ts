@@ -29,5 +29,14 @@ export const QUERY_COINS = gql`
         url
       }
     }
+    others(limit: $limit, sort: $sort) {
+      id
+      title
+      details
+      description
+      image {
+        url
+      }
+    }
   }
 `;
