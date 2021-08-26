@@ -1,6 +1,5 @@
 import { CoinProps } from 'constants/types/coin';
 import { Coin } from 'components';
-
 import * as S from './Section.styles';
 import { Slider } from 'components/Slider/Slider';
 import { Settings } from 'react-slick';
