@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
     query: QUERY_COINS,
     variables: {
-      limit: 5,
+      limit: 10,
       sort: 'created_at',
     },
   });
