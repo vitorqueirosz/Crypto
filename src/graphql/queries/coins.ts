@@ -7,6 +7,7 @@ export const QUERY_COINS = gql`
       title
       details
       description
+      viewed
       image {
         url
       }
@@ -16,6 +17,7 @@ export const QUERY_COINS = gql`
       title
       details
       description
+      viewed
       image {
         url
       }
@@ -25,6 +27,7 @@ export const QUERY_COINS = gql`
       title
       details
       description
+      viewed
       image {
         url
       }
@@ -34,6 +37,7 @@ export const QUERY_COINS = gql`
       title
       details
       description
+      viewed
       image {
         url
       }

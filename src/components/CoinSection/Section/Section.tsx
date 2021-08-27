@@ -1,7 +1,7 @@
 import { CoinProps } from 'constants/types/coin';
 import { Coin } from 'components';
 import * as S from './Section.styles';
-import { Slider } from 'components/Slider/Slider';
+import { Slider } from 'components';
 import { Settings } from 'react-slick';
 import { ArrowBackIos as PrevArrow } from '@styled-icons/material-outlined/ArrowBackIos';
 import { ArrowForwardIos as NextArrow } from '@styled-icons/material-outlined/ArrowForwardIos';

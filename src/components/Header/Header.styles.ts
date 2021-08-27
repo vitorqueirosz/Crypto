@@ -12,6 +12,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: ${theme.spacings.xlg};
+    width: 90%;
     flex: 1;
 
     span {
@@ -21,4 +22,8 @@ export const Content = styled.div`
   `}
 `;
 
-export const CoinList = styled.div``;
+export const CoinList = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;

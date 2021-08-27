@@ -3,25 +3,23 @@ import { CoinProps, Coins } from 'constants/types/coin';
 
 import * as S from './Main.styles';
 
-const items = [
-  {
-    id: '1',
-    details: 'MoneyTimes - 06h atras',
-    title:
-      '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard Mastercard',
-    image: 'https://i.pravatar.cc/300',
-  },
-];
+type MainCoinProps = { [key in Coins]: CoinProps[] };
 
-export type MainProps = {
-  [key in Coins]: CoinProps[];
+export type MainProps = MainCoinProps & {
+  mostViewed: CoinProps[];
 };
 
-export const Main = ({ bitcoin, ethereum, cardano, others }: MainProps) => {
+export const Main = ({
+  bitcoin,
+  ethereum,
+  cardano,
+  others,
+  mostViewed,
+}: MainProps) => {
   return (
     <Container>
       <S.Wrapper>
-        <Header items={items} />
+        <Header items={mostViewed} />
         <CurrencySection />
         <CoinSection
           bitcoin={bitcoin}

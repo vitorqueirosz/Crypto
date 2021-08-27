@@ -12,9 +12,10 @@ export const CoinSection = (props: CoinSectionProps) => {
       <S.Title>CRIPTOS</S.Title>
 
       <S.Content>
-        {Object.entries(props).map(([key, value]) => (
-          <Section key={key} title={key} items={value} />
-        ))}
+        {Object.entries(props).map(
+          ([key, value]) =>
+            !!value.length && <Section key={key} title={key} items={value} />,
+        )}
       </S.Content>
     </S.Wrapper>
   );

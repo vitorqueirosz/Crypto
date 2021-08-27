@@ -22,4 +22,11 @@ describe('<Header />', () => {
     expect(screen.getByRole('img', { name: /logo/i }));
     expect(screen.getByText(props.items[0].title)).toBeInTheDocument();
   });
+
+  it('should render active items correctly', () => {
+    const items = Array.from({ length: 4 }, () => props.items[0]);
+    const { container } = renderWithTheme(<Header items={items} />);
+
+    expect(container.querySelectorAll('.slick-active')).toHaveLength(3);
+  });
 });
