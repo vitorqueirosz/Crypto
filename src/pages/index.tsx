@@ -32,7 +32,8 @@ export const getStaticProps: GetStaticProps = async () => {
       coins.push(...coin);
 
       return coins.sort(
-        (prevCoin, nextCoin) => nextCoin.viewed - prevCoin.viewed,
+        (prevCoin, nextCoin) =>
+          Number(nextCoin?.viewed) - Number(prevCoin?.viewed),
       );
     },
     [],

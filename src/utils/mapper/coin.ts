@@ -5,9 +5,8 @@ export type StoredCoin = {
   id: string;
   title: string;
   details: string;
-  description: string;
-  image: QueryCoins_bitcoins_image | null;
-  viewed: number;
+  image: Pick<QueryCoins_bitcoins_image, 'url'> | null;
+  viewed?: number;
 };
 
 export const coinMapper = (coin: StoredCoin[]) => {
