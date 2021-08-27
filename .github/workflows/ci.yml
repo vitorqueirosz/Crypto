@@ -8,6 +8,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Set env
+        run: echo "GRAPHQL_URL=::add-mask::http://localhost:1337/graphql" >> $GITHUB_ENV
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
