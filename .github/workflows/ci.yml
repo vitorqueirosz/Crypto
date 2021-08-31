@@ -29,5 +29,5 @@ jobs:
         env:
           GRAPHQL_URL: ${{ secrets.GRAPHQL_URL }}
         run: |
-        yarn build
-        GRAPHQL_URL="$GRAPHQL_URL"
+            yarn build
+            GRAPHQL_URL="$GRAPHQL_URL"
