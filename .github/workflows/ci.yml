@@ -8,10 +8,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set env
-        env:
-          GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
@@ -30,4 +26,6 @@ jobs:
         run: yarn test
 
       - name: Build
+        env:
+          GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
         run: yarn build
