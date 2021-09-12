@@ -8,7 +8,8 @@ const props: SectionProps = {
   items: [
     {
       id: '1',
-      details: 'MoneyTimes - 06h atras',
+      publisher: 'MoneyTimes',
+      publishedAt: '2021-05-05',
       title:
         '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
       image: 'https://i.pravatar.cc/300',
@@ -27,7 +28,8 @@ describe('<Section />', () => {
   it('should render the slides correctly', () => {
     const items = Array.from({ length: 5 }, (_, index) => ({
       id: String(index + 1),
-      details: 'MoneyTimes - 06h atras',
+      publisher: 'MoneyTimes - 06h atras',
+      publishedAt: '2021-05-06',
       title:
         '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
       image: 'https://i.pravatar.cc/300',
