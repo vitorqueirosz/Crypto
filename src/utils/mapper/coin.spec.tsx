@@ -3,7 +3,10 @@ import { coinMapper } from './coin';
 const items = [
   {
     id: '1',
-    details: 'MoneyTimes - 06h atras',
+    short_description: 'MoneyTimes - 06h atras',
+    large_description: 'large_description',
+    publisher: 'MoneyTimes',
+    publishedAt: '2021-08-15',
     title:
       '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
     image: {
@@ -19,7 +22,10 @@ describe('coinMapper()', () => {
     expect(mappedItems).toStrictEqual([
       {
         id: '1',
-        details: 'MoneyTimes - 06h atras',
+        short_description: 'MoneyTimes - 06h atras',
+        large_description: 'large_description',
+        publisher: 'MoneyTimes',
+        publishedAt: '2021-08-15',
         title:
           '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
         image: `${process.env.URL}image`,
