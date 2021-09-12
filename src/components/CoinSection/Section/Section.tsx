@@ -11,12 +11,12 @@ export type SectionProps = {
   items: CoinProps[];
 };
 
-const coinsTitle = {
+const coinsTitle: Record<string, string> = {
   bitcoin: 'BITCOIN',
   ethereum: 'ETHEREUM',
   cardano: 'CARDANO (ADA)',
   others: 'OTHERS',
-} as { [key: string]: string };
+};
 
 const settings: Settings = {
   dots: false,

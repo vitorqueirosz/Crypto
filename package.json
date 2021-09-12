@@ -24,6 +24,7 @@
   "dependencies": {
     "@apollo/client": "^3.4.8",
     "@styled-icons/material-outlined": "^10.34.0",
+    "dayjs": "^1.10.7",
     "graphql": "^15.5.1",
     "next": "11.0.1",
     "react": "17.0.2",
