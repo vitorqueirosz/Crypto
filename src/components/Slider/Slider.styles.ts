@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
       overflow: hidden;
       margin: 0;
       padding: 0;
+      width: 100%;
     }
     .slick-list:focus {
       outline: 0;
