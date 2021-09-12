@@ -5,7 +5,8 @@ import { Coin } from './Coin';
 
 const props: CoinProps = {
   id: '1',
-  details: 'MoneyTimes - 06h atras',
+  publisher: 'MoneyTimes',
+  publishedAt: '2021-05-05',
   title: '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
   image: 'https://i.pravatar.cc/300',
 };
