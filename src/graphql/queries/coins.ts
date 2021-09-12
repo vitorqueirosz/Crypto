@@ -5,8 +5,10 @@ export const QUERY_COINS = gql`
     bitcoins(limit: $limit, sort: $sort) {
       id
       title
-      details
-      description
+      short_description
+      large_description
+      publisher
+      publishedAt
       viewed
       image {
         url
@@ -15,8 +17,10 @@ export const QUERY_COINS = gql`
     ethereums(limit: $limit, sort: $sort) {
       id
       title
-      details
-      description
+      short_description
+      large_description
+      publisher
+      publishedAt
       viewed
       image {
         url
@@ -25,8 +29,10 @@ export const QUERY_COINS = gql`
     cardanos(limit: $limit, sort: $sort) {
       id
       title
-      details
-      description
+      short_description
+      large_description
+      publisher
+      publishedAt
       viewed
       image {
         url
@@ -35,8 +41,10 @@ export const QUERY_COINS = gql`
     others(limit: $limit, sort: $sort) {
       id
       title
-      details
-      description
+      short_description
+      large_description
+      publisher
+      publishedAt
       viewed
       image {
         url

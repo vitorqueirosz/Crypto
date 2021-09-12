@@ -76,8 +76,10 @@ type Bitcoin {
   updated_at: DateTime!
   title: String!
   image: UploadFile
-  description: String!
-  details: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
 }
@@ -99,8 +101,10 @@ type BitcoinGroupBy {
   updated_at: [BitcoinConnectionUpdated_at]
   title: [BitcoinConnectionTitle]
   image: [BitcoinConnectionImage]
-  description: [BitcoinConnectionDescription]
-  details: [BitcoinConnectionDetails]
+  short_description: [BitcoinConnectionShort_description]
+  large_description: [BitcoinConnectionLarge_description]
+  publisher: [BitcoinConnectionPublisher]
+  publishedAt: [BitcoinConnectionPublishedAt]
   viewed: [BitcoinConnectionViewed]
   published_at: [BitcoinConnectionPublished_at]
 }
@@ -130,12 +134,22 @@ type BitcoinConnectionImage {
   connection: BitcoinConnection
 }
 
-type BitcoinConnectionDescription {
+type BitcoinConnectionShort_description {
   key: String
   connection: BitcoinConnection
 }
 
-type BitcoinConnectionDetails {
+type BitcoinConnectionLarge_description {
+  key: String
+  connection: BitcoinConnection
+}
+
+type BitcoinConnectionPublisher {
+  key: String
+  connection: BitcoinConnection
+}
+
+type BitcoinConnectionPublishedAt {
   key: String
   connection: BitcoinConnection
 }
@@ -153,8 +167,10 @@ type BitcoinConnectionPublished_at {
 input BitcoinInput {
   title: String!
   image: ID
-  description: String!
-  details: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -164,8 +180,10 @@ input BitcoinInput {
 input editBitcoinInput {
   title: String
   image: ID
-  description: String
-  details: String
+  short_description: String
+  large_description: String
+  publisher: String
+  publishedAt: String
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -203,8 +221,10 @@ type Cardano {
   updated_at: DateTime!
   title: String!
   image: UploadFile
-  details: String!
-  description: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
 }
@@ -226,8 +246,10 @@ type CardanoGroupBy {
   updated_at: [CardanoConnectionUpdated_at]
   title: [CardanoConnectionTitle]
   image: [CardanoConnectionImage]
-  details: [CardanoConnectionDetails]
-  description: [CardanoConnectionDescription]
+  short_description: [CardanoConnectionShort_description]
+  large_description: [CardanoConnectionLarge_description]
+  publisher: [CardanoConnectionPublisher]
+  publishedAt: [CardanoConnectionPublishedAt]
   viewed: [CardanoConnectionViewed]
   published_at: [CardanoConnectionPublished_at]
 }
@@ -257,12 +279,22 @@ type CardanoConnectionImage {
   connection: CardanoConnection
 }
 
-type CardanoConnectionDetails {
+type CardanoConnectionShort_description {
   key: String
   connection: CardanoConnection
 }
 
-type CardanoConnectionDescription {
+type CardanoConnectionLarge_description {
+  key: String
+  connection: CardanoConnection
+}
+
+type CardanoConnectionPublisher {
+  key: String
+  connection: CardanoConnection
+}
+
+type CardanoConnectionPublishedAt {
   key: String
   connection: CardanoConnection
 }
@@ -280,8 +312,10 @@ type CardanoConnectionPublished_at {
 input CardanoInput {
   title: String!
   image: ID
-  details: String!
-  description: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -291,8 +325,10 @@ input CardanoInput {
 input editCardanoInput {
   title: String
   image: ID
-  details: String
-  description: String
+  short_description: String
+  large_description: String
+  publisher: String
+  publishedAt: String
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -430,8 +466,10 @@ type Ethereum {
   updated_at: DateTime!
   title: String!
   image: UploadFile
-  details: String!
-  description: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
 }
@@ -453,8 +491,10 @@ type EthereumGroupBy {
   updated_at: [EthereumConnectionUpdated_at]
   title: [EthereumConnectionTitle]
   image: [EthereumConnectionImage]
-  details: [EthereumConnectionDetails]
-  description: [EthereumConnectionDescription]
+  short_description: [EthereumConnectionShort_description]
+  large_description: [EthereumConnectionLarge_description]
+  publisher: [EthereumConnectionPublisher]
+  publishedAt: [EthereumConnectionPublishedAt]
   viewed: [EthereumConnectionViewed]
   published_at: [EthereumConnectionPublished_at]
 }
@@ -484,12 +524,22 @@ type EthereumConnectionImage {
   connection: EthereumConnection
 }
 
-type EthereumConnectionDetails {
+type EthereumConnectionShort_description {
   key: String
   connection: EthereumConnection
 }
 
-type EthereumConnectionDescription {
+type EthereumConnectionLarge_description {
+  key: String
+  connection: EthereumConnection
+}
+
+type EthereumConnectionPublisher {
+  key: String
+  connection: EthereumConnection
+}
+
+type EthereumConnectionPublishedAt {
   key: String
   connection: EthereumConnection
 }
@@ -507,8 +557,10 @@ type EthereumConnectionPublished_at {
 input EthereumInput {
   title: String!
   image: ID
-  details: String!
-  description: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -518,8 +570,10 @@ input EthereumInput {
 input editEthereumInput {
   title: String
   image: ID
-  details: String
-  description: String
+  short_description: String
+  large_description: String
+  publisher: String
+  publishedAt: String
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -555,11 +609,7 @@ type New {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  image: UploadFile
-  title: String!
-  details: String!
-  viewed: Long
-  description: String!
+  title: String
   published_at: DateTime
 }
 
@@ -578,11 +628,7 @@ type NewGroupBy {
   id: [NewConnectionId]
   created_at: [NewConnectionCreated_at]
   updated_at: [NewConnectionUpdated_at]
-  image: [NewConnectionImage]
   title: [NewConnectionTitle]
-  details: [NewConnectionDetails]
-  viewed: [NewConnectionViewed]
-  description: [NewConnectionDescription]
   published_at: [NewConnectionPublished_at]
 }
 
@@ -601,27 +647,7 @@ type NewConnectionUpdated_at {
   connection: NewConnection
 }
 
-type NewConnectionImage {
-  key: ID
-  connection: NewConnection
-}
-
 type NewConnectionTitle {
-  key: String
-  connection: NewConnection
-}
-
-type NewConnectionDetails {
-  key: String
-  connection: NewConnection
-}
-
-type NewConnectionViewed {
-  key: ID
-  connection: NewConnection
-}
-
-type NewConnectionDescription {
   key: String
   connection: NewConnection
 }
@@ -632,22 +658,14 @@ type NewConnectionPublished_at {
 }
 
 input NewInput {
-  image: ID
-  title: String!
-  details: String!
-  viewed: Long
-  description: String!
+  title: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
 input editNewInput {
-  image: ID
   title: String
-  details: String
-  viewed: Long
-  description: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -684,9 +702,11 @@ type Others {
   updated_at: DateTime!
   title: String!
   image: UploadFile
-  details: String!
-  description: String!
-  viewed: Long!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
+  viewed: Long
   published_at: DateTime
 }
 
@@ -707,8 +727,10 @@ type OthersGroupBy {
   updated_at: [OthersConnectionUpdated_at]
   title: [OthersConnectionTitle]
   image: [OthersConnectionImage]
-  details: [OthersConnectionDetails]
-  description: [OthersConnectionDescription]
+  short_description: [OthersConnectionShort_description]
+  large_description: [OthersConnectionLarge_description]
+  publisher: [OthersConnectionPublisher]
+  publishedAt: [OthersConnectionPublishedAt]
   viewed: [OthersConnectionViewed]
   published_at: [OthersConnectionPublished_at]
 }
@@ -738,12 +760,22 @@ type OthersConnectionImage {
   connection: OthersConnection
 }
 
-type OthersConnectionDetails {
+type OthersConnectionShort_description {
   key: String
   connection: OthersConnection
 }
 
-type OthersConnectionDescription {
+type OthersConnectionLarge_description {
+  key: String
+  connection: OthersConnection
+}
+
+type OthersConnectionPublisher {
+  key: String
+  connection: OthersConnection
+}
+
+type OthersConnectionPublishedAt {
   key: String
   connection: OthersConnection
 }
@@ -761,9 +793,11 @@ type OthersConnectionPublished_at {
 input OtherInput {
   title: String!
   image: ID
-  details: String!
-  description: String!
-  viewed: Long!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
+  viewed: Long
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -772,8 +806,10 @@ input OtherInput {
 input editOtherInput {
   title: String
   image: ID
-  details: String
-  description: String
+  short_description: String
+  large_description: String
+  publisher: String
+  publishedAt: String
   viewed: Long
   published_at: DateTime
   created_by: ID
@@ -1275,187 +1311,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-type ComponentCoinCoin {
-  id: ID!
-  title: String!
-  image: UploadFile
-  description: String!
-  details: String!
-  viewed: Long!
-}
-
-input ComponentCoinCoinInput {
-  title: String!
-  image: ID
-  description: String!
-  details: String!
-  viewed: Long!
-}
-
-input editComponentCoinCoinInput {
-  id: ID
-  title: String
-  image: ID
-  description: String
-  details: String
-  viewed: Long
-}
-
-type ComponentCoinsBitcoin {
-  id: ID!
-  title: String!
-  bitcoins(sort: String, limit: Int, start: Int, where: JSON): [Bitcoin!]!
-}
-
-input ComponentCoinsBitcoinInput {
-  title: String
-  bitcoins: [ID]
-}
-
-input editComponentCoinsBitcoinInput {
-  id: ID
-  title: String
-  bitcoins: [ID]
-}
-
-type ComponentCoinsCardano {
-  id: ID!
-  title: String!
-  cardanos(sort: String, limit: Int, start: Int, where: JSON): [Cardano!]!
-}
-
-input ComponentCoinsCardanoInput {
-  title: String!
-  cardanos: [ID]
-}
-
-input editComponentCoinsCardanoInput {
-  id: ID
-  title: String
-  cardanos: [ID]
-}
-
-type ComponentCoinsEthereum {
-  id: ID!
-  title: String!
-  ethereums(sort: String, limit: Int, start: Int, where: JSON): [Ethereum!]!
-}
-
-input ComponentCoinsEthereumInput {
-  title: String
-  ethereums: [ID]
-}
-
-input editComponentCoinsEthereumInput {
-  id: ID
-  title: String
-  ethereums: [ID]
-}
-
-type ComponentCoinsOthers {
-  id: ID!
-  title: String!
-  others(sort: String, limit: Int, start: Int, where: JSON): [Others!]!
-}
-
-input ComponentCoinsOtherInput {
-  title: String
-  others: [ID]
-}
-
-input editComponentCoinsOtherInput {
-  id: ID
-  title: String
-  others: [ID]
-}
-
-type ComponentCotationContations {
-  id: ID!
-  cotations(sort: String, limit: Int, start: Int, where: JSON): [Cotation!]!
-}
-
-input ComponentCotationContationInput {
-  cotations: [ID]
-}
-
-input editComponentCotationContationInput {
-  id: ID
-  cotations: [ID]
-}
-
-type ComponentSectionCoins {
-  id: ID!
-}
-
-input ComponentSectionCoinInput {
-  _: String
-}
-
-input editComponentSectionCoinInput {
-  id: ID
-}
-
-type ComponentSectionCriptoSection {
-  id: ID!
-  title: String!
-  bitcoin: ComponentCoinsBitcoin
-  ethereum: ComponentCoinsEthereum
-  Cardano: ComponentCoinsCardano
-  others: ComponentCoinsOthers
-}
-
-input ComponentSectionCriptoSectionInput {
-  title: String
-  bitcoin: ComponentCoinsBitcoinInput!
-  ethereum: ComponentCoinsEthereumInput!
-  Cardano: ComponentCoinsCardanoInput
-  others: ComponentCoinsOtherInput!
-}
-
-input editComponentSectionCriptoSectionInput {
-  id: ID
-  title: String
-  bitcoin: editComponentCoinsBitcoinInput
-  ethereum: editComponentCoinsEthereumInput
-  Cardano: editComponentCoinsCardanoInput
-  others: editComponentCoinsOtherInput
-}
-
-type ComponentSectionHeader {
-  id: ID!
-  title: String!
-  news(sort: String, limit: Int, start: Int, where: JSON): [New!]!
-}
-
-input ComponentSectionHeaderInput {
-  title: String
-  news: [ID]
-}
-
-input editComponentSectionHeaderInput {
-  id: ID
-  title: String
-  news: [ID]
-}
-
-type ComponentSectionSectionCoin {
-  id: ID!
-  title: String!
-  news(sort: String, limit: Int, start: Int, where: JSON): [New!]!
-}
-
-input ComponentSectionSectionCoinInput {
-  title: String!
-  news: [ID]
-}
-
-input editComponentSectionSectionCoinInput {
-  id: ID
-  title: String
-  news: [ID]
-}
-
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Bitcoin | BitcoinConnection | BitcoinAggregator | BitcoinGroupBy | BitcoinConnectionId | BitcoinConnectionCreated_at | BitcoinConnectionUpdated_at | BitcoinConnectionTitle | BitcoinConnectionImage | BitcoinConnectionDescription | BitcoinConnectionDetails | BitcoinConnectionViewed | BitcoinConnectionPublished_at | createBitcoinPayload | updateBitcoinPayload | deleteBitcoinPayload | Cardano | CardanoConnection | CardanoAggregator | CardanoGroupBy | CardanoConnectionId | CardanoConnectionCreated_at | CardanoConnectionUpdated_at | CardanoConnectionTitle | CardanoConnectionImage | CardanoConnectionDetails | CardanoConnectionDescription | CardanoConnectionViewed | CardanoConnectionPublished_at | createCardanoPayload | updateCardanoPayload | deleteCardanoPayload | Cotation | CotationConnection | CotationAggregator | CotationGroupBy | CotationConnectionId | CotationConnectionCreated_at | CotationConnectionUpdated_at | CotationConnectionName | CotationConnectionCurrent_cotation | CotationConnectionPublished_at | createCotationPayload | updateCotationPayload | deleteCotationPayload | Ethereum | EthereumConnection | EthereumAggregator | EthereumGroupBy | EthereumConnectionId | EthereumConnectionCreated_at | EthereumConnectionUpdated_at | EthereumConnectionTitle | EthereumConnectionImage | EthereumConnectionDetails | EthereumConnectionDescription | EthereumConnectionViewed | EthereumConnectionPublished_at | createEthereumPayload | updateEthereumPayload | deleteEthereumPayload | New | NewConnection | NewAggregator | NewGroupBy | NewConnectionId | NewConnectionCreated_at | NewConnectionUpdated_at | NewConnectionImage | NewConnectionTitle | NewConnectionDetails | NewConnectionViewed | NewConnectionDescription | NewConnectionPublished_at | createNewPayload | updateNewPayload | deleteNewPayload | Others | OthersConnection | OthersAggregator | OthersGroupBy | OthersConnectionId | OthersConnectionCreated_at | OthersConnectionUpdated_at | OthersConnectionTitle | OthersConnectionImage | OthersConnectionDetails | OthersConnectionDescription | OthersConnectionViewed | OthersConnectionPublished_at | createOtherPayload | updateOtherPayload | deleteOtherPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentCoinCoin | ComponentCoinsBitcoin | ComponentCoinsCardano | ComponentCoinsEthereum | ComponentCoinsOthers | ComponentCotationContations | ComponentSectionCoins | ComponentSectionCriptoSection | ComponentSectionHeader | ComponentSectionSectionCoin
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Bitcoin | BitcoinConnection | BitcoinAggregator | BitcoinGroupBy | BitcoinConnectionId | BitcoinConnectionCreated_at | BitcoinConnectionUpdated_at | BitcoinConnectionTitle | BitcoinConnectionImage | BitcoinConnectionShort_description | BitcoinConnectionLarge_description | BitcoinConnectionPublisher | BitcoinConnectionPublishedAt | BitcoinConnectionViewed | BitcoinConnectionPublished_at | createBitcoinPayload | updateBitcoinPayload | deleteBitcoinPayload | Cardano | CardanoConnection | CardanoAggregator | CardanoGroupBy | CardanoConnectionId | CardanoConnectionCreated_at | CardanoConnectionUpdated_at | CardanoConnectionTitle | CardanoConnectionImage | CardanoConnectionShort_description | CardanoConnectionLarge_description | CardanoConnectionPublisher | CardanoConnectionPublishedAt | CardanoConnectionViewed | CardanoConnectionPublished_at | createCardanoPayload | updateCardanoPayload | deleteCardanoPayload | Cotation | CotationConnection | CotationAggregator | CotationGroupBy | CotationConnectionId | CotationConnectionCreated_at | CotationConnectionUpdated_at | CotationConnectionName | CotationConnectionCurrent_cotation | CotationConnectionPublished_at | createCotationPayload | updateCotationPayload | deleteCotationPayload | Ethereum | EthereumConnection | EthereumAggregator | EthereumGroupBy | EthereumConnectionId | EthereumConnectionCreated_at | EthereumConnectionUpdated_at | EthereumConnectionTitle | EthereumConnectionImage | EthereumConnectionShort_description | EthereumConnectionLarge_description | EthereumConnectionPublisher | EthereumConnectionPublishedAt | EthereumConnectionViewed | EthereumConnectionPublished_at | createEthereumPayload | updateEthereumPayload | deleteEthereumPayload | New | NewConnection | NewAggregator | NewGroupBy | NewConnectionId | NewConnectionCreated_at | NewConnectionUpdated_at | NewConnectionTitle | NewConnectionPublished_at | createNewPayload | updateNewPayload | deleteNewPayload | Others | OthersConnection | OthersAggregator | OthersGroupBy | OthersConnectionId | OthersConnectionCreated_at | OthersConnectionUpdated_at | OthersConnectionTitle | OthersConnectionImage | OthersConnectionShort_description | OthersConnectionLarge_description | OthersConnectionPublisher | OthersConnectionPublishedAt | OthersConnectionViewed | OthersConnectionPublished_at | createOtherPayload | updateOtherPayload | deleteOtherPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!

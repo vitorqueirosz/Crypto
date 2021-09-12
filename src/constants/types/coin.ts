@@ -1,7 +1,9 @@
 export type CoinProps = {
   id: string;
   title: string;
-  details: string;
+  short_description: string;
+  publisher: string;
+  publishedAt: string;
   image: string;
   size?: 'normal' | 'small';
 };

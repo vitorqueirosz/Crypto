@@ -16,8 +16,10 @@ export interface QueryCoins_bitcoins {
   __typename: "Bitcoin";
   id: string;
   title: string;
-  details: string;
-  description: string;
+  short_description: string;
+  large_description: string;
+  publisher: string;
+  publishedAt: string;
   viewed: any | null;
   image: QueryCoins_bitcoins_image | null;
 }
@@ -31,8 +33,10 @@ export interface QueryCoins_ethereums {
   __typename: "Ethereum";
   id: string;
   title: string;
-  details: string;
-  description: string;
+  short_description: string;
+  large_description: string;
+  publisher: string;
+  publishedAt: string;
   viewed: any | null;
   image: QueryCoins_ethereums_image | null;
 }
@@ -46,8 +50,10 @@ export interface QueryCoins_cardanos {
   __typename: "Cardano";
   id: string;
   title: string;
-  details: string;
-  description: string;
+  short_description: string;
+  large_description: string;
+  publisher: string;
+  publishedAt: string;
   viewed: any | null;
   image: QueryCoins_cardanos_image | null;
 }
@@ -61,9 +67,11 @@ export interface QueryCoins_others {
   __typename: "Others";
   id: string;
   title: string;
-  details: string;
-  description: string;
-  viewed: any;
+  short_description: string;
+  large_description: string;
+  publisher: string;
+  publishedAt: string;
+  viewed: any | null;
   image: QueryCoins_others_image | null;
 }
 
