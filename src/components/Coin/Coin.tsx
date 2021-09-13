@@ -1,6 +1,6 @@
 import { CoinProps } from 'constants/types/coin';
 import { useMemo } from 'react';
-import { setTimeDifference } from 'utils/setTimeDifference';
+import { setTimeDifference } from 'utils/time/setTimeDifference';
 
 import * as S from './Coin.styles';
 
