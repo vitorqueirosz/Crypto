@@ -1,35 +1,29 @@
-import dayjs from 'dayjs';
 import { setTimeDifference } from './setTimeDifference';
-
-dayjs().format();
 
 describe('setTimeDifference()', () => {
   it('should return in days the time difference', () => {
-    const currentDay = new Date();
-    const pastDay = dayjs(currentDay.setDate(currentDay.getDate() - 1)).format(
-      'YYYY-DD-MMTHH:mm',
-    );
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1);
+    const nextDay = currentDate.toString();
 
-    expect(setTimeDifference(pastDay)).toStrictEqual('1 dias atrás');
+    expect(setTimeDifference(nextDay)).toStrictEqual('1 dias atrás');
   });
 
-  // it('should return in hours the time difference', () => {
-  //   const currentDate = new Date();
-  //   const twoHoursBehind = dayjs(
-  //     currentDate.setHours(currentDate.getHours() - 2),
-  //   ).format('YYYY-DD-MMTHH:mm');
+  it('should return in hours the time difference', () => {
+    const currentDate = new Date();
+    currentDate.setHours(currentDate.getHours() - 2);
+    const twoHoursBehind = currentDate.toString();
 
-  //   expect(setTimeDifference(twoHoursBehind)).toStrictEqual('2 horas atrás');
-  // });
+    expect(setTimeDifference(twoHoursBehind)).toStrictEqual('2 horas atrás');
+  });
 
-  // it('should return in minutes the time difference', () => {
-  //   const currentDate = new Date();
-  //   const thirtyMinutesBehind = dayjs(
-  //     currentDate.setMinutes(currentDate.getMinutes() - 30),
-  //   ).format('YYYY-DD-MMTHH:mm');
+  it('should return in minutes the time difference', () => {
+    const currentDate = new Date();
+    currentDate.setMinutes(currentDate.getMinutes() - 30);
+    const thirtyMinutesBehind = currentDate.toString();
 
-  //   expect(setTimeDifference(thirtyMinutesBehind)).toStrictEqual(
-  //     '30 minutos atrás',
-  //   );
-  // });
+    expect(setTimeDifference(thirtyMinutesBehind)).toStrictEqual(
+      '30 minutos atrás',
+    );
+  });
 });

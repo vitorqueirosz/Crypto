@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 dayjs().format();
 
 export const setTimeDifference = (publishedAt: string) => {
-  const publishedDate = dayjs(new Date(publishedAt)).format('YYYY-DD-MMTHH:mm');
+  const publishedDate = dayjs(new Date(publishedAt)).format('YYYY-MM-DDTHH:mm');
 
   const hours = dayjs().diff(publishedDate, 'hour');
   const days = dayjs().diff(publishedDate, 'day');
