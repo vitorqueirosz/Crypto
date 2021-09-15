@@ -1,4 +1,4 @@
-import { CoinProps } from 'constants/types/coin';
+import { CoinProps } from 'types/coin';
 import { Coin, Logo } from 'components';
 import { Slider } from 'components';
 import { ArrowBackIos as PrevArrow } from '@styled-icons/material-outlined/ArrowBackIos';

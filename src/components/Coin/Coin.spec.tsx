@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { CoinProps } from 'constants/types/coin';
+import { CoinProps } from 'types/coin';
 import { renderWithTheme } from 'utils/tests/render';
 import { Coin } from './Coin';
 

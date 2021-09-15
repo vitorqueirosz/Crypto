@@ -1,4 +1,4 @@
-import { CoinProps } from 'constants/types/coin';
+import { CoinProps } from 'types/coin';
 import { Coin } from 'components';
 import * as S from './Section.styles';
 import { Slider } from 'components';

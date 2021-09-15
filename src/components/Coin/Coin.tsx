@@ -1,4 +1,4 @@
-import { CoinProps } from 'constants/types/coin';
+import { CoinProps } from 'types/coin';
 import { useMemo } from 'react';
 import { setTimeDifference } from 'utils/time/setTimeDifference';
 

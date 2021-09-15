@@ -1,5 +1,5 @@
 import { Container, Header, CurrencySection, CoinSection } from 'components';
-import { CoinProps, Coins } from 'constants/types/coin';
+import { CoinProps, Coins } from 'types/coin';
 
 import * as S from './Main.styles';
 

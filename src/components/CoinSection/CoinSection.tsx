@@ -1,4 +1,4 @@
-import { CoinProps, Coins } from 'constants/types/coin';
+import { CoinProps, Coins } from 'types/coin';
 import * as S from './CoinSection.styles';
 import { Section } from './Section/Section';
 

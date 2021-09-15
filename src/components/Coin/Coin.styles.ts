@@ -1,5 +1,5 @@
 import { EllipsisMultiLine } from 'components/EllipsisMultiline/EllipsisMultiline';
-import { CoinProps } from 'constants/types/coin';
+import { CoinProps } from 'types/coin';
 import styled, { css, DefaultTheme } from 'styled-components';
 
 const wrapperProps = {
