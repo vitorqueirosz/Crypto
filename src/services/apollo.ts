@@ -11,7 +11,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject | null>;
 const createApolloClient = () => {
   const client = new ApolloClient({
     ssrMode: isSSR,
-    link: new HttpLink({ uri: process.env.GRAPHQL_URL }),
+    link: new HttpLink({ uri: process.env.NEXT_PUBLIC_GRAPHQL_URL }),
     cache: new InMemoryCache(),
   });
 

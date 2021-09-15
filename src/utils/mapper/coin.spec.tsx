@@ -28,7 +28,7 @@ describe('coinMapper()', () => {
         publishedAt: '2021-08-15',
         title:
           '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
-        image: `${process.env.URL}image`,
+        image: `${process.env.NEXT_PUBLIC_URL}image`,
       },
     ]);
   });

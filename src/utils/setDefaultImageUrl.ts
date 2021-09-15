@@ -1,3 +1,3 @@
 export const setDefaultImageUrl = (image: string) => {
-  return `${process.env.URL}${image}`;
+  return `${process.env.NEXT_PUBLIC_URL}${image}`;
 };

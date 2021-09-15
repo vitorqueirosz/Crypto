@@ -1,4 +1,4 @@
 import "@testing-library/jest-dom";
 import "jest-styled-components";
 
-process.env.URL = "http://localhost:1337";
+process.env.NEXT_PUBLIC_URL = "http://localhost:1337";
