@@ -8,6 +8,7 @@ const wrapperModifiers = {
     ${CurrentValue} {
       color: ${theme.colors.red};
     }
+
     ${Percent} {
       background: ${theme.colors.red};
       color: ${theme.colors.white};
@@ -17,6 +18,7 @@ const wrapperModifiers = {
     ${CurrentValue} {
       color: #31d322;
     }
+
     ${Percent} {
       background: #31d322;
       color: ${theme.colors.white};
