@@ -6,3 +6,4 @@ export * from './CurrencySection/CurrencySection';
 export * from './CoinSection/CoinSection';
 export * from './Slider/Slider';
 export * from './Cotation/Cotation';
+export * from './Navbar/Navbar';

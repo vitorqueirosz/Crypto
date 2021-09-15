@@ -1,4 +1,10 @@
-import { Container, Header, CurrencySection, CoinSection } from 'components';
+import {
+  Container,
+  Header,
+  CurrencySection,
+  CoinSection,
+  Navbar,
+} from 'components';
 import { CoinProps, Coins } from 'types/coin';
 
 import * as S from './Main.styles';
@@ -19,6 +25,7 @@ export const Main = ({
   return (
     <Container>
       <S.Wrapper>
+        <Navbar />
         <Header items={mostViewed} />
         <CurrencySection />
         <CoinSection
