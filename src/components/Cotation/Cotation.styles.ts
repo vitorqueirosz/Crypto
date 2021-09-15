@@ -6,11 +6,16 @@ export const Wrapper = styled.div`
     background: ${theme.colors.secondary};
     padding: ${theme.spacings['2xs']} ${theme.spacings.xs};
     height: 100%;
+    border-right: 1px solid ${theme.colors.gray};
 
     > span {
       text-transform: uppercase;
       color: ${theme.colors.white};
       font-size: ${theme.font.sizes.sm};
+    }
+
+    &:first-child {
+      border-left: 1px solid ${theme.colors.gray};
     }
   `}
 `;
