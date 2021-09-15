@@ -8,12 +8,7 @@ export const CurrencySection = () => {
   return (
     <S.Wrapper>
       {cotations.map((cotation) => (
-        <Cotation
-          key={cotation.name}
-          name={cotation.name}
-          currentValue={cotation.currentValue}
-          percent={cotation.percent}
-        />
+        <Cotation key={cotation.name} {...cotation} />
       ))}
     </S.Wrapper>
   );

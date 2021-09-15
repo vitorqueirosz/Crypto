@@ -1,8 +1,32 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
+import { CotationProps } from './Cotation';
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    width: 152px;
+type WrapperProps = Pick<CotationProps, 'isPriceLower' | 'isPriceHigher'>;
+
+const wrapperModifiers = {
+  isPriceLower: (theme: DefaultTheme) => css`
+    ${CurrentValue} {
+      color: ${theme.colors.red};
+    }
+    ${Percent} {
+      background: ${theme.colors.red};
+      color: ${theme.colors.white};
+    }
+  `,
+  isPriceHigher: (theme: DefaultTheme) => css`
+    ${CurrentValue} {
+      color: #31d322;
+    }
+    ${Percent} {
+      background: #31d322;
+      color: ${theme.colors.white};
+    }
+  `,
+};
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, isPriceLower, isPriceHigher }) => css`
+    width: 160px;
     background: ${theme.colors.secondary};
     padding: ${theme.spacings['2xs']} ${theme.spacings.xs};
     height: 100%;
@@ -17,6 +41,9 @@ export const Wrapper = styled.div`
     &:first-child {
       border-left: 1px solid ${theme.colors.gray};
     }
+
+    ${isPriceLower && wrapperModifiers.isPriceLower(theme)}
+    ${isPriceHigher && wrapperModifiers.isPriceHigher(theme)}
   `}
 `;
 
@@ -28,13 +55,13 @@ export const Divisor = styled.div`
 `;
 
 export const CurrentValue = styled.span`
-  color: #31d322;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Percent = styled.small`
   ${({ theme }) => css`
-    background: #269a1c;
-    color: ${theme.colors.white};
+    background: ${theme.colors.white};
+    color: ${theme.colors.black};
     text-align: center;
     width: 38px;
     padding: 2px 0;
