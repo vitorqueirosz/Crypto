@@ -1,5 +1,6 @@
 import { QueryCoins, QueryCoinsVariables } from 'graphql/generated/QueryCoins';
 import { QUERY_COINS } from 'graphql/queries/coins';
+import { QUERY_COTATIONS } from 'graphql/queries/cotations';
 import { GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
 import { Main, MainProps } from 'templates';
@@ -11,6 +12,10 @@ export default function Home(props: MainProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const client = initializeApolloClient();
+
+  const { data } = await client.query({
+    query: QUERY_COTATIONS,
+  });
 
   const fetchCoins = async (sort: 'created_at' | 'viewed') => {
     const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
@@ -46,6 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
       cardano: coinMapper(fetchedCoins.cardanos),
       others: coinMapper(fetchedCoins.others ?? []),
       mostViewed: coinMapper(mostViewedNews),
+      cotations: data.cotations,
     },
   };
 };

@@ -5,6 +5,7 @@ import {
   CoinSection,
   Navbar,
   MediaMatch,
+  CotationProps,
 } from 'components';
 import { CoinProps, Coins } from 'types/coin';
 
@@ -14,6 +15,7 @@ type MainCoinProps = { [key in Coins]: CoinProps[] };
 
 export type MainProps = MainCoinProps & {
   mostViewed: CoinProps[];
+  cotations: CotationProps[];
 };
 
 export const Main = ({
@@ -22,6 +24,7 @@ export const Main = ({
   cardano,
   others,
   mostViewed,
+  cotations,
 }: MainProps) => {
   return (
     <Container>
@@ -30,7 +33,7 @@ export const Main = ({
           <Navbar />
         </MediaMatch>
         <Header items={mostViewed} />
-        <CurrencySection />
+        <CurrencySection cotations={cotations} />
         <CoinSection
           bitcoin={bitcoin}
           ethereum={ethereum}
