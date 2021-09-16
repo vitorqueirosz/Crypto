@@ -26,7 +26,7 @@ const wrapperModifiers = {
   `,
 };
 
-export const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.article<WrapperProps>`
   ${({ theme, isPriceLower, isPriceHigher }) => css`
     min-width: 160px;
     width: 160px;
