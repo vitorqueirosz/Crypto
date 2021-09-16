@@ -1,9 +1,18 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     padding: ${theme.spacings.xs} ${theme.spacings.md} 0;
+
+    ${media.lessThan('large')`
+      padding: ${theme.spacings.xs} 0 0;
+
+      svg {
+        display: none;
+      }
+    `}
   `}
 `;
 
@@ -19,6 +28,10 @@ export const Content = styled.div`
       color: ${theme.colors.white};
       margin-bottom: ${theme.spacings['2xs']};
     }
+
+    ${media.lessThan('large')`
+      margin-left: 0;
+    `}
   `}
 `;
 

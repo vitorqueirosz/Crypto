@@ -21,7 +21,52 @@ const settings: Settings = {
   arrows: true,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
-  responsive: [],
+  responsive: [
+    {
+      breakpoint: 1375,
+      settings: {
+        slidesToShow: 2.8,
+      },
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2.5,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1.8,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 660,
+      settings: {
+        slidesToShow: 1.4,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 430,
+      settings: {
+        slidesToShow: 1.1,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
+        draggable: true,
+      },
+    },
+  ],
 };
 
 export const Header = ({ title = 'Mais lidas', items }: HeaderProps) => {

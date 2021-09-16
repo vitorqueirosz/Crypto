@@ -28,6 +28,7 @@ const wrapperModifiers = {
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ theme, isPriceLower, isPriceHigher }) => css`
+    min-width: 160px;
     width: 160px;
     background: ${theme.colors.secondary};
     padding: ${theme.spacings['2xs']} ${theme.spacings.xs};
