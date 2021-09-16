@@ -1,12 +1,5 @@
-import {
-  Container,
-  Header,
-  CurrencySection,
-  CoinSection,
-  Navbar,
-  MediaMatch,
-  CotationProps,
-} from 'components';
+import { CoinSection, CotationProps } from 'components';
+import { Base } from 'templates/Base/Base';
 import { CoinProps, Coins } from 'types/coin';
 
 import * as S from './Main.styles';
@@ -27,13 +20,8 @@ export const Main = ({
   cotations,
 }: MainProps) => {
   return (
-    <Container>
+    <Base mostViewed={mostViewed} cotations={cotations}>
       <S.Wrapper>
-        <MediaMatch lessThan="large">
-          <Navbar />
-        </MediaMatch>
-        <Header items={mostViewed} />
-        <CurrencySection cotations={cotations} />
         <CoinSection
           bitcoin={bitcoin}
           ethereum={ethereum}
@@ -41,6 +29,6 @@ export const Main = ({
           others={others}
         />
       </S.Wrapper>
-    </Container>
+    </Base>
   );
 };
