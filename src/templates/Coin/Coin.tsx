@@ -2,7 +2,7 @@ import { Base } from 'templates/Base/Base';
 import { CoinDetails, CoinDetailsProps, CotationProps } from 'components';
 import { CoinProps } from 'types/coin';
 
-type CoinTemplateProps = CoinDetailsProps & {
+export type CoinTemplateProps = CoinDetailsProps & {
   mostViewed: CoinProps[];
   cotations: CotationProps[];
 };
