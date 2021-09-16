@@ -4,6 +4,7 @@ import {
   CurrencySection,
   CoinSection,
   Navbar,
+  MediaMatch,
 } from 'components';
 import { CoinProps, Coins } from 'types/coin';
 
@@ -25,7 +26,9 @@ export const Main = ({
   return (
     <Container>
       <S.Wrapper>
-        <Navbar />
+        <MediaMatch lessThan="large">
+          <Navbar />
+        </MediaMatch>
         <Header items={mostViewed} />
         <CurrencySection />
         <CoinSection

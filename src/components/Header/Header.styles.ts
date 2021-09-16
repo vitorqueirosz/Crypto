@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
     padding: ${theme.spacings.xs} ${theme.spacings.md} 0;
 
     ${media.lessThan('large')`
-      padding: ${theme.spacings.xs} 0 0;
+      padding: ${theme.spacings.xs} ${theme.spacings.xs} 0;
+      margin-bottom: ${theme.spacings.md};
 
       svg {
         display: none;

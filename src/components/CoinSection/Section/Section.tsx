@@ -27,7 +27,40 @@ const settings: Settings = {
   arrows: true,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
-  responsive: [],
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2.4,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1.8,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1.1,
+        arrows: false,
+        draggable: true,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        arrows: false,
+        draggable: true,
+      },
+    },
+  ],
 };
 
 export const Section = ({ title, items }: SectionProps) => {

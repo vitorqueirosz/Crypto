@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -6,6 +7,10 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
     padding: ${theme.spacings.sm} 0;
+
+    ${media.lessThan('large')`
+      padding: ${theme.spacings.sm} ${theme.spacings.xs};
+    `}
   `}
 `;
 
@@ -25,5 +30,9 @@ export const Content = styled.main`
         border-top: none;
       }
     }
+
+    ${media.lessThan('large')`
+      margin-top: ${theme.spacings['2xs']};
+    `}
   `}
 `;

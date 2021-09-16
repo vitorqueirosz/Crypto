@@ -1,4 +1,8 @@
-export const Logo = () => {
+type LogoProps = {
+  id?: string;
+};
+
+export const Logo = ({ id = 'id' }: LogoProps) => {
   return (
     <div role="img" aria-label="logo">
       <svg
@@ -8,10 +12,10 @@ export const Logo = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect width="113" height="121" fill="url(#pattern0)" />
+        <rect width="113" height="121" fill={`url(#pattern${id})`} />
         <defs>
           <pattern
-            id="pattern0"
+            id={`pattern${id}`}
             patternContentUnits="objectBoundingBox"
             width="1"
             height="1"

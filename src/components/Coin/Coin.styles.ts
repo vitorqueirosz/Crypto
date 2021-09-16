@@ -1,6 +1,7 @@
 import { EllipsisMultiLine } from 'components/EllipsisMultiline/EllipsisMultiline';
 import { CoinProps } from 'types/coin';
 import styled, { css, DefaultTheme } from 'styled-components';
+import media from 'styled-media-query';
 
 const wrapperProps = {
   small: (theme: DefaultTheme) => css`
@@ -16,11 +17,41 @@ const wrapperProps = {
     ${Details} {
       font-size: ${theme.font.sizes['2xs']};
     }
+
+    ${media.lessThan('small')`
+      min-width: 320px;
+      width: 320px;
+
+      ${Image} {
+        width: 100px;
+        object-fit: cover;
+      }
+
+      ${Title} {
+        -webkit-line-clamp: 2;
+      }
+    `}
   `,
   normal: () => css`
     height: 115px;
     min-width: 360px;
     width: 360px;
+
+    ${media.lessThan('small')`
+      min-width: 320px;
+      width: 320px;
+
+      ${Image} {
+        width: 100px;
+        object-fit: cover;
+      }
+
+      ${Title} {
+        ${EllipsisMultiLine} {
+          -webkit-line-clamp: 3;
+        }
+      }
+    `}
   `,
 };
 

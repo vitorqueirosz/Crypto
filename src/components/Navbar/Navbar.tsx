@@ -4,7 +4,7 @@ import * as S from './Navbar.styles';
 export const Navbar = () => {
   return (
     <S.Wrapper>
-      <Logo />
+      <Logo id="navbar" />
     </S.Wrapper>
   );
 };
