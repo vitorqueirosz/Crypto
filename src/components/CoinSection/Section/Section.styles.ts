@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Section = styled.div`
+export const Section = styled.section`
   ${({ theme }) => css`
     width: 100%;
     border-top: 1px solid ${theme.colors.gray};
