@@ -1,3 +1,4 @@
+import { ENUM_COIN_TYPE } from 'graphql/generated/globalTypes';
 import { coinMapper } from './coin';
 
 const items = [
@@ -12,6 +13,7 @@ const items = [
     image: {
       url: 'image',
     },
+    type: ENUM_COIN_TYPE.bitcoin,
   },
 ];
 
@@ -29,6 +31,7 @@ describe('coinMapper()', () => {
         title:
           '“Precisamos estar no mercado de criptomoedas”, diz CEO da Mastercard',
         image: `${process.env.NEXT_PUBLIC_URL}image`,
+        type: 'bitcoin',
       },
     ]);
   });
