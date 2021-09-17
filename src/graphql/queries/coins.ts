@@ -1,11 +1,22 @@
 import { gql } from '@apollo/client';
-import { COIN_FRAGMENT } from 'graphql/fragments/coin';
+import { CoinFragment } from 'graphql/fragments/coin';
 
 export const QUERY_COINS = gql`
   query QueryCoins($limit: Int!, $sort: String, $type: String) {
     coins(limit: $limit, sort: $sort, where: { type: $type }) {
-      ...COIN_FRAGMENT
+      ...CoinFragment
     }
   }
-  ${COIN_FRAGMENT}
+  ${CoinFragment}
+`;
+
+export const QUERY_COIN_BY_ID = gql`
+  query QueryCoinById($id: Int!) {
+    coins(where: { id: $id }) {
+      ...CoinFragment
+      short_description
+      large_description
+    }
+  }
+  ${CoinFragment}
 `;

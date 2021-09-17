@@ -6,31 +6,21 @@
 import { ENUM_COIN_TYPE } from "./globalTypes";
 
 // ====================================================
-// GraphQL query operation: QueryCoins
+// GraphQL fragment: CoinFragment
 // ====================================================
 
-export interface QueryCoins_coins_image {
+export interface CoinFragment_image {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface QueryCoins_coins {
+export interface CoinFragment {
   __typename: "Coin";
   id: string;
   title: string;
-  image: QueryCoins_coins_image | null;
+  image: CoinFragment_image | null;
   publisher: string;
   publishedAt: string;
   viewed: any | null;
   type: ENUM_COIN_TYPE | null;
-}
-
-export interface QueryCoins {
-  coins: QueryCoins_coins[];
-}
-
-export interface QueryCoinsVariables {
-  limit: number;
-  sort?: string | null;
-  type?: string | null;
 }

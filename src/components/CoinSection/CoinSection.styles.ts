@@ -25,7 +25,7 @@ export const Content = styled.main`
     width: 100%;
     margin-top: ${theme.spacings.lg};
 
-    div {
+    > div {
       &:first-child {
         border-top: none;
       }

@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const COIN_FRAGMENT = gql`
+export const CoinFragment = gql`
   fragment CoinFragment on Coin {
     id
     title
@@ -9,6 +9,7 @@ export const COIN_FRAGMENT = gql`
     }
     publisher
     publishedAt
+    viewed
     type
   }
 `;

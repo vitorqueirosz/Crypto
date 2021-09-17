@@ -60,6 +60,13 @@ export const Wrapper = styled.div<Pick<CoinProps, 'size'>>`
     display: flex;
     max-height: 100%;
     background: ${theme.colors.secondary};
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border 0.3s ease-in-out;
+
+    &:hover {
+      border-color: ${theme.colors.darkGray};
+    }
 
     ${size && wrapperProps[size](theme)}
   `}
