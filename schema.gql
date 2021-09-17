@@ -360,6 +360,167 @@ type deleteCardanoPayload {
   cardano: Cardano
 }
 
+enum ENUM_COIN_TYPE {
+  bitcoin
+  ethereum
+  cardano
+  others
+}
+
+type Coin {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  title: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
+  image: UploadFile
+  viewed: Long
+  type: ENUM_COIN_TYPE
+  published_at: DateTime
+}
+
+type CoinConnection {
+  values: [Coin]
+  groupBy: CoinGroupBy
+  aggregate: CoinAggregator
+}
+
+type CoinAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CoinGroupBy {
+  id: [CoinConnectionId]
+  created_at: [CoinConnectionCreated_at]
+  updated_at: [CoinConnectionUpdated_at]
+  title: [CoinConnectionTitle]
+  short_description: [CoinConnectionShort_description]
+  large_description: [CoinConnectionLarge_description]
+  publisher: [CoinConnectionPublisher]
+  publishedAt: [CoinConnectionPublishedAt]
+  image: [CoinConnectionImage]
+  viewed: [CoinConnectionViewed]
+  type: [CoinConnectionType]
+  published_at: [CoinConnectionPublished_at]
+}
+
+type CoinConnectionId {
+  key: ID
+  connection: CoinConnection
+}
+
+type CoinConnectionCreated_at {
+  key: DateTime
+  connection: CoinConnection
+}
+
+type CoinConnectionUpdated_at {
+  key: DateTime
+  connection: CoinConnection
+}
+
+type CoinConnectionTitle {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionShort_description {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionLarge_description {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionPublisher {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionPublishedAt {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionImage {
+  key: ID
+  connection: CoinConnection
+}
+
+type CoinConnectionViewed {
+  key: ID
+  connection: CoinConnection
+}
+
+type CoinConnectionType {
+  key: String
+  connection: CoinConnection
+}
+
+type CoinConnectionPublished_at {
+  key: DateTime
+  connection: CoinConnection
+}
+
+input CoinInput {
+  title: String!
+  short_description: String!
+  large_description: String!
+  publisher: String!
+  publishedAt: String!
+  image: ID
+  viewed: Long
+  type: ENUM_COIN_TYPE
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCoinInput {
+  title: String
+  short_description: String
+  large_description: String
+  publisher: String
+  publishedAt: String
+  image: ID
+  viewed: Long
+  type: ENUM_COIN_TYPE
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCoinInput {
+  data: CoinInput
+}
+
+type createCoinPayload {
+  coin: Coin
+}
+
+input updateCoinInput {
+  where: InputID
+  data: editCoinInput
+}
+
+type updateCoinPayload {
+  coin: Coin
+}
+
+input deleteCoinInput {
+  where: InputID
+}
+
+type deleteCoinPayload {
+  coin: Coin
+}
+
 type Cotation {
   id: ID!
   created_at: DateTime!
@@ -1320,7 +1481,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Bitcoin | BitcoinConnection | BitcoinAggregator | BitcoinGroupBy | BitcoinConnectionId | BitcoinConnectionCreated_at | BitcoinConnectionUpdated_at | BitcoinConnectionTitle | BitcoinConnectionImage | BitcoinConnectionShort_description | BitcoinConnectionLarge_description | BitcoinConnectionPublisher | BitcoinConnectionPublishedAt | BitcoinConnectionViewed | BitcoinConnectionPublished_at | createBitcoinPayload | updateBitcoinPayload | deleteBitcoinPayload | Cardano | CardanoConnection | CardanoAggregator | CardanoGroupBy | CardanoConnectionId | CardanoConnectionCreated_at | CardanoConnectionUpdated_at | CardanoConnectionTitle | CardanoConnectionImage | CardanoConnectionShort_description | CardanoConnectionLarge_description | CardanoConnectionPublisher | CardanoConnectionPublishedAt | CardanoConnectionViewed | CardanoConnectionPublished_at | createCardanoPayload | updateCardanoPayload | deleteCardanoPayload | Cotation | CotationConnection | CotationAggregator | CotationGroupBy | CotationConnectionId | CotationConnectionCreated_at | CotationConnectionUpdated_at | CotationConnectionName | CotationConnectionCurrentValue | CotationConnectionPercent | CotationConnectionPublished_at | createCotationPayload | updateCotationPayload | deleteCotationPayload | Ethereum | EthereumConnection | EthereumAggregator | EthereumGroupBy | EthereumConnectionId | EthereumConnectionCreated_at | EthereumConnectionUpdated_at | EthereumConnectionTitle | EthereumConnectionImage | EthereumConnectionShort_description | EthereumConnectionLarge_description | EthereumConnectionPublisher | EthereumConnectionPublishedAt | EthereumConnectionViewed | EthereumConnectionPublished_at | createEthereumPayload | updateEthereumPayload | deleteEthereumPayload | New | NewConnection | NewAggregator | NewGroupBy | NewConnectionId | NewConnectionCreated_at | NewConnectionUpdated_at | NewConnectionTitle | NewConnectionPublished_at | createNewPayload | updateNewPayload | deleteNewPayload | Others | OthersConnection | OthersAggregator | OthersGroupBy | OthersConnectionId | OthersConnectionCreated_at | OthersConnectionUpdated_at | OthersConnectionTitle | OthersConnectionImage | OthersConnectionShort_description | OthersConnectionLarge_description | OthersConnectionPublisher | OthersConnectionPublishedAt | OthersConnectionViewed | OthersConnectionPublished_at | createOtherPayload | updateOtherPayload | deleteOtherPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Bitcoin | BitcoinConnection | BitcoinAggregator | BitcoinGroupBy | BitcoinConnectionId | BitcoinConnectionCreated_at | BitcoinConnectionUpdated_at | BitcoinConnectionTitle | BitcoinConnectionImage | BitcoinConnectionShort_description | BitcoinConnectionLarge_description | BitcoinConnectionPublisher | BitcoinConnectionPublishedAt | BitcoinConnectionViewed | BitcoinConnectionPublished_at | createBitcoinPayload | updateBitcoinPayload | deleteBitcoinPayload | Cardano | CardanoConnection | CardanoAggregator | CardanoGroupBy | CardanoConnectionId | CardanoConnectionCreated_at | CardanoConnectionUpdated_at | CardanoConnectionTitle | CardanoConnectionImage | CardanoConnectionShort_description | CardanoConnectionLarge_description | CardanoConnectionPublisher | CardanoConnectionPublishedAt | CardanoConnectionViewed | CardanoConnectionPublished_at | createCardanoPayload | updateCardanoPayload | deleteCardanoPayload | Coin | CoinConnection | CoinAggregator | CoinGroupBy | CoinConnectionId | CoinConnectionCreated_at | CoinConnectionUpdated_at | CoinConnectionTitle | CoinConnectionShort_description | CoinConnectionLarge_description | CoinConnectionPublisher | CoinConnectionPublishedAt | CoinConnectionImage | CoinConnectionViewed | CoinConnectionType | CoinConnectionPublished_at | createCoinPayload | updateCoinPayload | deleteCoinPayload | Cotation | CotationConnection | CotationAggregator | CotationGroupBy | CotationConnectionId | CotationConnectionCreated_at | CotationConnectionUpdated_at | CotationConnectionName | CotationConnectionCurrentValue | CotationConnectionPercent | CotationConnectionPublished_at | createCotationPayload | updateCotationPayload | deleteCotationPayload | Ethereum | EthereumConnection | EthereumAggregator | EthereumGroupBy | EthereumConnectionId | EthereumConnectionCreated_at | EthereumConnectionUpdated_at | EthereumConnectionTitle | EthereumConnectionImage | EthereumConnectionShort_description | EthereumConnectionLarge_description | EthereumConnectionPublisher | EthereumConnectionPublishedAt | EthereumConnectionViewed | EthereumConnectionPublished_at | createEthereumPayload | updateEthereumPayload | deleteEthereumPayload | New | NewConnection | NewAggregator | NewGroupBy | NewConnectionId | NewConnectionCreated_at | NewConnectionUpdated_at | NewConnectionTitle | NewConnectionPublished_at | createNewPayload | updateNewPayload | deleteNewPayload | Others | OthersConnection | OthersAggregator | OthersGroupBy | OthersConnectionId | OthersConnectionCreated_at | OthersConnectionUpdated_at | OthersConnectionTitle | OthersConnectionImage | OthersConnectionShort_description | OthersConnectionLarge_description | OthersConnectionPublisher | OthersConnectionPublishedAt | OthersConnectionViewed | OthersConnectionPublished_at | createOtherPayload | updateOtherPayload | deleteOtherPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -1345,6 +1506,9 @@ type Query {
   cardano(id: ID!, publicationState: PublicationState): Cardano
   cardanos(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Cardano!]!
   cardanosConnection(sort: String, limit: Int, start: Int, where: JSON): CardanoConnection
+  coin(id: ID!, publicationState: PublicationState): Coin
+  coins(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Coin!]!
+  coinsConnection(sort: String, limit: Int, start: Int, where: JSON): CoinConnection
   cotation(id: ID!, publicationState: PublicationState): Cotation
   cotations(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Cotation!]!
   cotationsConnection(sort: String, limit: Int, start: Int, where: JSON): CotationConnection
@@ -1376,6 +1540,9 @@ type Mutation {
   createCardano(input: createCardanoInput): createCardanoPayload
   updateCardano(input: updateCardanoInput): updateCardanoPayload
   deleteCardano(input: deleteCardanoInput): deleteCardanoPayload
+  createCoin(input: createCoinInput): createCoinPayload
+  updateCoin(input: updateCoinInput): updateCoinPayload
+  deleteCoin(input: deleteCoinInput): deleteCoinPayload
   createCotation(input: createCotationInput): createCotationPayload
   updateCotation(input: updateCotationInput): updateCotationPayload
   deleteCotation(input: deleteCotationInput): deleteCotationPayload

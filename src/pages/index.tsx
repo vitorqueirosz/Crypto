@@ -4,11 +4,13 @@ import { QUERY_COTATIONS } from 'graphql/queries/cotations';
 import { GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
 import { Main, MainProps } from 'templates';
-import { coinMapper, StoredCoin } from 'utils/mapper/coin';
+import { coinMapper } from 'utils/mapper/coin';
 
 export default function Home(props: MainProps) {
   return <Main {...props} />;
 }
+
+const coinKeys = ['bitcoin', 'ethereum', 'cardano', 'others'];
 
 export const getStaticProps: GetStaticProps = async () => {
   const client = initializeApolloClient();
@@ -17,7 +19,31 @@ export const getStaticProps: GetStaticProps = async () => {
     query: QUERY_COTATIONS,
   });
 
-  const fetchCoins = async (sort: 'created_at' | 'viewed') => {
+  const coins = await Promise.all(
+    coinKeys.map(async (coin) => {
+      const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
+        query: QUERY_COINS,
+        variables: {
+          limit: 10,
+          sort: 'created_at',
+          type: coin,
+        },
+      });
+
+      return {
+        [coin]: coinMapper(data.coins),
+      };
+    }),
+  );
+
+  const reducedCoins = coins.reduce((acc, coin) => {
+    return {
+      ...acc,
+      ...coin,
+    };
+  }, {});
+
+  const fetchCoins = async (sort: string) => {
     const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
       query: QUERY_COINS,
       variables: {
@@ -26,31 +52,18 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     });
 
-    return data;
+    return data.coins;
   };
 
-  const fetchedCoins = await fetchCoins('created_at');
-
   const fetchedCoinsByViewed = await fetchCoins('viewed');
-  const mostViewedNews = Object.values(fetchedCoinsByViewed).reduce(
-    (coins: StoredCoin[], coin: StoredCoin[]) => {
-      coins.push(...coin);
-
-      return coins.sort(
-        (prevCoin, nextCoin) =>
-          Number(nextCoin?.viewed) - Number(prevCoin?.viewed),
-      );
-    },
-    [],
+  const mostViewedNews = coinMapper(fetchedCoinsByViewed).sort(
+    (prevCoin, nextCoin) => Number(nextCoin?.viewed) - Number(prevCoin?.viewed),
   );
 
   return {
     props: {
-      bitcoin: coinMapper(fetchedCoins.bitcoins),
-      ethereum: coinMapper(fetchedCoins.ethereums),
-      cardano: coinMapper(fetchedCoins.cardanos),
-      others: coinMapper(fetchedCoins.others ?? []),
-      mostViewed: coinMapper(mostViewedNews),
+      ...reducedCoins,
+      mostViewed: mostViewedNews,
       cotations: data.cotations,
     },
   };

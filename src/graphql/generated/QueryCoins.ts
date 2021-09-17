@@ -3,86 +3,34 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { ENUM_COIN_TYPE } from "./globalTypes";
+
 // ====================================================
 // GraphQL query operation: QueryCoins
 // ====================================================
 
-export interface QueryCoins_bitcoins_image {
+export interface QueryCoins_coins_image {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface QueryCoins_bitcoins {
-  __typename: "Bitcoin";
+export interface QueryCoins_coins {
+  __typename: "Coin";
   id: string;
   title: string;
-  short_description: string;
-  large_description: string;
+  image: QueryCoins_coins_image | null;
   publisher: string;
   publishedAt: string;
+  type: ENUM_COIN_TYPE | null;
   viewed: any | null;
-  image: QueryCoins_bitcoins_image | null;
-}
-
-export interface QueryCoins_ethereums_image {
-  __typename: "UploadFile";
-  url: string;
-}
-
-export interface QueryCoins_ethereums {
-  __typename: "Ethereum";
-  id: string;
-  title: string;
-  short_description: string;
-  large_description: string;
-  publisher: string;
-  publishedAt: string;
-  viewed: any | null;
-  image: QueryCoins_ethereums_image | null;
-}
-
-export interface QueryCoins_cardanos_image {
-  __typename: "UploadFile";
-  url: string;
-}
-
-export interface QueryCoins_cardanos {
-  __typename: "Cardano";
-  id: string;
-  title: string;
-  short_description: string;
-  large_description: string;
-  publisher: string;
-  publishedAt: string;
-  viewed: any | null;
-  image: QueryCoins_cardanos_image | null;
-}
-
-export interface QueryCoins_others_image {
-  __typename: "UploadFile";
-  url: string;
-}
-
-export interface QueryCoins_others {
-  __typename: "Others";
-  id: string;
-  title: string;
-  short_description: string;
-  large_description: string;
-  publisher: string;
-  publishedAt: string;
-  viewed: any | null;
-  image: QueryCoins_others_image | null;
 }
 
 export interface QueryCoins {
-  bitcoins: QueryCoins_bitcoins[];
-  ethereums: QueryCoins_ethereums[];
-  cardanos: QueryCoins_cardanos[];
-  others: QueryCoins_others[];
+  coins: QueryCoins_coins[];
 }
 
 export interface QueryCoinsVariables {
-  limit?: number | null;
+  limit: number;
   sort?: string | null;
+  type?: string | null;
 }
