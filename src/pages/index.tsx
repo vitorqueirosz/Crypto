@@ -1,4 +1,5 @@
 import { QueryCoins, QueryCoinsVariables } from 'graphql/generated/QueryCoins';
+import { QueryCotations } from 'graphql/generated/QueryCotations';
 import { QUERY_COINS } from 'graphql/queries/coins';
 import { QUERY_COTATIONS } from 'graphql/queries/cotations';
 import { GetStaticProps } from 'next';
@@ -15,7 +16,7 @@ const coinKeys = ['bitcoin', 'ethereum', 'cardano', 'others'];
 export const getStaticProps: GetStaticProps = async () => {
   const client = initializeApolloClient();
 
-  const { data } = await client.query({
+  const { data } = await client.query<QueryCotations>({
     query: QUERY_COTATIONS,
   });
 

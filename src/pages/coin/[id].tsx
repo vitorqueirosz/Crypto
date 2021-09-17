@@ -3,7 +3,9 @@ import {
   QueryCoinByIdVariables,
 } from 'graphql/generated/QueryCoinById';
 import { QueryCoins, QueryCoinsVariables } from 'graphql/generated/QueryCoins';
+import { QueryCotations } from 'graphql/generated/QueryCotations';
 import { QUERY_COINS, QUERY_COIN_BY_ID } from 'graphql/queries/coins';
+import { QUERY_COTATIONS } from 'graphql/queries/cotations';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
 import { Coin, CoinTemplateProps } from 'templates';
@@ -15,15 +17,22 @@ export default function CoinById(props: CoinTemplateProps) {
 
 const client = initializeApolloClient();
 
-export const getStaticPaths: GetStaticPaths = async () => {
+const fetchCoins = async (sort?: string) => {
   const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
     query: QUERY_COINS,
     variables: {
       limit: 10,
+      sort,
     },
   });
 
-  const paths = data.coins.map((coin) => ({
+  return data.coins;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const coins = await fetchCoins();
+
+  const paths = coins.map((coin) => ({
     params: {
       id: coin.id,
     },
@@ -45,11 +54,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [coin] = coinMapper(data.coins);
 
+  const fetchedCoinsByViewed = await fetchCoins('viewed');
+  const mostViewedNews = coinMapper(fetchedCoinsByViewed).sort(
+    (prevCoin, nextCoin) => Number(nextCoin?.viewed) - Number(prevCoin?.viewed),
+  );
+
+  const { data: cotations } = await client.query<QueryCotations>({
+    query: QUERY_COTATIONS,
+  });
+
   return {
     props: {
       ...coin,
-      mostViewed: [],
-      cotations: [],
+      mostViewed: mostViewedNews,
+      cotations: cotations.cotations,
     },
   };
 };
