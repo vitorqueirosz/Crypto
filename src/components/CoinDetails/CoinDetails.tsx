@@ -16,14 +16,14 @@ export const CoinDetails = ({
 }: CoinDetailsProps) => {
   return (
     <S.Wrapper>
-      <S.Title>CRIPTOS</S.Title>
+      <S.Title>{title}</S.Title>
 
       <S.Divisor>
         <S.CoinBody>
           <S.Banner src={image} alt={title} />
-          <span>
+          <small>
             {publisher} - {publishedAt}
-          </span>
+          </small>
 
           <p>{short_description}</p>
           <p>{large_description}</p>
