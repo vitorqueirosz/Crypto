@@ -7,7 +7,11 @@ export type CoinTemplateProps = CoinDetailsProps & {
   cotations: CotationProps[];
 };
 
-export const Coin = ({ mostViewed, cotations, ...coin }: CoinTemplateProps) => {
+export const Coin = ({
+  mostViewed = [],
+  cotations = [],
+  ...coin
+}: CoinTemplateProps) => {
   return (
     <Base mostViewed={mostViewed} cotations={cotations}>
       <CoinDetails {...coin} />

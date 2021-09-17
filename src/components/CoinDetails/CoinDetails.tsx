@@ -1,4 +1,5 @@
 import { CoinProps } from 'types/coin';
+import { ChartCoin } from 'components';
 import * as S from './CoinDetails.styles';
 
 export type CoinDetailsProps = CoinProps & {
@@ -29,7 +30,9 @@ export const CoinDetails = ({
           <p>{large_description}</p>
         </S.CoinBody>
 
-        <S.Aside />
+        <S.Aside>
+          <ChartCoin />
+        </S.Aside>
       </S.Divisor>
     </S.Wrapper>
   );

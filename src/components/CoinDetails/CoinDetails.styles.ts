@@ -33,7 +33,11 @@ export const CoinBody = styled.main`
 `;
 
 export const Aside = styled.aside`
-  width: 100%;
+  ${({ theme }) => css`
+    width: 100%;
+    height: 400px;
+    background: ${theme.colors.lightGray};
+  `}
 `;
 
 export const Banner = styled.img`
