@@ -4,6 +4,7 @@ import { setTimeDifference } from 'utils/time/setTimeDifference';
 import Link from 'next/link';
 
 import * as S from './Coin.styles';
+import { ROUTES } from 'constants/routes';
 
 export const Coin = ({
   id,
@@ -19,7 +20,7 @@ export const Coin = ({
   );
 
   return (
-    <Link href={`coin/${id}`}>
+    <Link href={ROUTES.COIN_BY_ID(id)}>
       <S.Wrapper size={size} title={title}>
         <S.Image loading="lazy" src={image} alt={title} />
         <S.Aside>
