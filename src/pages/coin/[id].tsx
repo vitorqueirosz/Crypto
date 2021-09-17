@@ -1,3 +1,4 @@
+import { TradesChartData } from 'components';
 import {
   QueryCoinById,
   QueryCoinByIdVariables,
@@ -82,8 +83,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }),
   );
 
-  const reducedTrades = trades.reduce((acc, trade) => {
-    return [...acc, ...trade];
+  const reducedTrades = trades.reduce((acc: TradesChartData[], trade) => {
+    const tradeItem = {
+      label: trade[0].type,
+      data: trade,
+    } as unknown as TradesChartData;
+
+    return [...acc, tradeItem];
   }, []);
 
   const fetchedCoinsByViewed = await fetchCoins('viewed');

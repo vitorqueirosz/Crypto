@@ -1,10 +1,16 @@
 import { Base } from 'templates/Base/Base';
-import { CoinDetails, CoinDetailsProps, CotationProps } from 'components';
+import {
+  CoinDetails,
+  CoinDetailsProps,
+  CotationProps,
+  TradesChartData,
+} from 'components';
 import { CoinProps } from 'types/coin';
 
 export type CoinTemplateProps = CoinDetailsProps & {
   mostViewed: CoinProps[];
   cotations: CotationProps[];
+  trades: TradesChartData[];
 };
 
 export const Coin = ({

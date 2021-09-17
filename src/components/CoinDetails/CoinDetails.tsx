@@ -1,10 +1,12 @@
 import { CoinProps } from 'types/coin';
-import { ChartCoin } from 'components';
+import { ChartTrades } from 'components';
 import * as S from './CoinDetails.styles';
+import { TradesChartData } from 'components/Chart/Chart';
 
 export type CoinDetailsProps = CoinProps & {
   large_description: string;
   short_description: string;
+  trades: TradesChartData[];
 };
 
 export const CoinDetails = ({
@@ -14,6 +16,7 @@ export const CoinDetails = ({
   publisher,
   short_description,
   large_description,
+  trades,
 }: CoinDetailsProps) => {
   return (
     <S.Wrapper>
@@ -31,7 +34,7 @@ export const CoinDetails = ({
         </S.CoinBody>
 
         <S.Aside>
-          <ChartCoin />
+          <ChartTrades trades={trades} />
         </S.Aside>
       </S.Divisor>
     </S.Wrapper>

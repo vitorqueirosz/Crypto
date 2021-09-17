@@ -1,49 +1,38 @@
+import { TRADE_TYPES } from 'constants/enums';
 import { useMemo } from 'react';
 import { AxisOptions, Chart } from 'react-charts';
 
-type MyDatum = { date: Date; stars: number };
+type Trade = {
+  id: string;
+  type: TRADE_TYPES;
+  price: string;
+  quantity: string;
+  time: string;
+};
 
-const data = [
-  {
-    label: 'Price',
-    data: [
-      {
-        date: new Date('2021-09-14'),
-        stars: 44,
-      },
-      {
-        date: new Date('2021-09-15'),
-        stars: 33,
-      },
-      {
-        date: new Date('2021-09-16'),
-        stars: 55,
-      },
-    ],
-  },
-];
+export type TradesChartData = {
+  label: TRADE_TYPES;
+  data: Trade[];
+};
 
-export const ChartCoin = () => {
+type ChartTradesProps = {
+  trades: TradesChartData[];
+};
+
+export const ChartTrades = ({ trades }: ChartTradesProps) => {
   const primaryAxis = useMemo(
-    (): AxisOptions<MyDatum> => ({
-      getValue: (datum) => datum.date,
+    (): AxisOptions<Trade> => ({
+      getValue: (datum) => datum.time,
       elementType: 'line',
-      max: 50,
-      styles: {
-        background: '#fff',
-      },
     }),
     [],
   );
 
   const secondaryAxes = useMemo(
-    (): AxisOptions<MyDatum>[] => [
+    (): AxisOptions<Trade>[] => [
       {
-        getValue: (datum) => datum.stars,
+        getValue: (datum) => datum.price,
         elementType: 'line',
-        styles: {
-          background: '#fff',
-        },
       },
     ],
     [],
@@ -52,7 +41,7 @@ export const ChartCoin = () => {
   return (
     <Chart
       options={{
-        data,
+        data: trades,
         primaryAxis,
         secondaryAxes,
       }}
