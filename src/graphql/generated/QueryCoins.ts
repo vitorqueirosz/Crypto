@@ -22,7 +22,7 @@ export interface QueryCoins_coins {
   publisher: string;
   publishedAt: string;
   viewed: any | null;
-  type: ENUM_COIN_TYPE | null;
+  type: ENUM_COIN_TYPE;
 }
 
 export interface QueryCoins {

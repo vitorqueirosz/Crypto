@@ -1,3 +1,4 @@
+import { ENUM_COIN_TYPE } from 'graphql/generated/globalTypes';
 import { QueryCoins_coins_image } from 'graphql/generated/QueryCoins';
 import { setDefaultImageUrl } from 'utils/setDefaultImageUrl';
 
@@ -9,6 +10,7 @@ export type StoredCoin = {
   publisher: string;
   publishedAt: string;
   image: Pick<QueryCoins_coins_image, 'url'> | null;
+  type: ENUM_COIN_TYPE;
   viewed?: number;
 };
 

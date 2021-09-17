@@ -14,6 +14,13 @@ export enum ENUM_COIN_TYPE {
   others = "others",
 }
 
+export enum ENUM_TRADE_TYPE {
+  ADAUSDT = "ADAUSDT",
+  BTCBRL = "BTCBRL",
+  BTCUSDT = "BTCUSDT",
+  EHTUSDT = "EHTUSDT",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================

@@ -22,5 +22,5 @@ export interface CoinFragment {
   publisher: string;
   publishedAt: string;
   viewed: any | null;
-  type: ENUM_COIN_TYPE | null;
+  type: ENUM_COIN_TYPE;
 }

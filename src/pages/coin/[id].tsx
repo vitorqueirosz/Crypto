@@ -4,8 +4,13 @@ import {
 } from 'graphql/generated/QueryCoinById';
 import { QueryCoins, QueryCoinsVariables } from 'graphql/generated/QueryCoins';
 import { QueryCotations } from 'graphql/generated/QueryCotations';
+import {
+  QueryTradesByType,
+  QueryTradesByTypeVariables,
+} from 'graphql/generated/QueryTradesByType';
 import { QUERY_COINS, QUERY_COIN_BY_ID } from 'graphql/queries/coins';
 import { QUERY_COTATIONS } from 'graphql/queries/cotations';
+import { QUERY_TRADES_BY_TYPE } from 'graphql/queries/trades';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
 import { Coin, CoinTemplateProps } from 'templates';
@@ -16,6 +21,13 @@ export default function CoinById(props: CoinTemplateProps) {
 }
 
 const client = initializeApolloClient();
+
+const criptoKeys = {
+  bitcoin: ['BTCUSDT', 'BTCBRL'],
+  ethereum: ['ETHUSDT'],
+  cardano: ['ADAUSDT'],
+  others: ['BTCUSDT', 'BTCBRL', 'ADAUSDT', 'ETHUSDT'],
+};
 
 const fetchCoins = async (sort?: string) => {
   const { data } = await client.query<QueryCoins, QueryCoinsVariables>({
@@ -54,6 +66,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [coin] = coinMapper(data.coins);
 
+  const trades = await Promise.all(
+    criptoKeys[coin.type].map(async (key) => {
+      const { data } = await client.query<
+        QueryTradesByType,
+        QueryTradesByTypeVariables
+      >({
+        query: QUERY_TRADES_BY_TYPE,
+        variables: {
+          type: key,
+        },
+      });
+
+      return data.trades;
+    }),
+  );
+
+  const reducedTrades = trades.reduce((acc, trade) => {
+    return [...acc, ...trade];
+  }, []);
+
   const fetchedCoinsByViewed = await fetchCoins('viewed');
   const mostViewedNews = coinMapper(fetchedCoinsByViewed).sort(
     (prevCoin, nextCoin) => Number(nextCoin?.viewed) - Number(prevCoin?.viewed),
@@ -68,6 +100,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ...coin,
       mostViewed: mostViewedNews,
       cotations: cotations.cotations,
+      trades: reducedTrades,
     },
   };
 };
