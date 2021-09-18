@@ -85,8 +85,8 @@ export const ChartTrades = ({ trades, currencyPrefix }: ChartTradesProps) => {
   );
 
   return (
-    <S.Wrapper>
-      <S.Title>Histórico de Trades - {currencyPrefix} </S.Title>
+    <S.Wrapper aria-label="chart">
+      <S.Title>Histórico de Trades - {currencyPrefix}</S.Title>
 
       <S.ChartWrapper>
         <Chart

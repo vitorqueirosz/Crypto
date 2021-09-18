@@ -9,7 +9,7 @@ export type Groups = {
   [keys in GroupKeys]: TradesChartData[];
 };
 
-export type CoinDetailsProps = CoinProps & {
+export type CoinDetailsProps = Omit<CoinProps, 'id'> & {
   large_description: string;
   short_description: string;
   trades: Groups;
