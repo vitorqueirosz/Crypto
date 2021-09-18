@@ -2,7 +2,7 @@ import { CoinProps, Coins } from 'types/coin';
 import * as S from './CoinSection.styles';
 import { Section } from './Section/Section';
 
-type CoinSectionProps = {
+export type CoinSectionProps = {
   [key in Coins]: CoinProps[];
 };
 

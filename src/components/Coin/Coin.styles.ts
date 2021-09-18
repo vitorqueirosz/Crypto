@@ -55,7 +55,7 @@ const wrapperProps = {
   `,
 };
 
-export const Wrapper = styled.div<Pick<CoinProps, 'size'>>`
+export const Wrapper = styled.article<Pick<CoinProps, 'size'>>`
   ${({ theme, size }) => css`
     display: flex;
     max-height: 100%;
