@@ -19,6 +19,7 @@ export const CoinBody = styled.main`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    padding-right: ${theme.spacings.lg};
 
     > small {
       color: ${theme.colors.gray};
@@ -33,11 +34,9 @@ export const CoinBody = styled.main`
 `;
 
 export const Aside = styled.aside`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 400px;
-    background: ${theme.colors.lightGray};
-  `}
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const Banner = styled.img`

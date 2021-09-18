@@ -1,4 +1,4 @@
-import { TradesChartData } from 'components';
+import { GroupKeys, Groups, TradesChartData } from 'components';
 import {
   QueryCoinById,
   QueryCoinByIdVariables,
@@ -16,6 +16,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { initializeApolloClient } from 'services/apollo';
 import { Coin, CoinTemplateProps } from 'templates';
 import { coinMapper } from 'utils/mapper/coin';
+import { tradeMapper } from 'utils/mapper/trades';
 
 export default function CoinById(props: CoinTemplateProps) {
   return <Coin {...props} />;
@@ -86,11 +87,25 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const reducedTrades = trades.reduce((acc: TradesChartData[], trade) => {
     const tradeItem = {
       label: trade[0].type,
-      data: trade,
-    } as unknown as TradesChartData;
+      data: tradeMapper(trade),
+    };
 
     return [...acc, tradeItem];
   }, []);
+
+  const tradeGroups = reducedTrades.reduce((acc: Groups, trade) => {
+    const currencyPrefix = trade.label.slice(
+      3,
+      trade.label.length,
+    ) as GroupKeys;
+
+    acc = {
+      ...acc,
+      [currencyPrefix]: [...(acc[currencyPrefix] ?? []), trade],
+    };
+
+    return acc;
+  }, {} as Groups);
 
   const fetchedCoinsByViewed = await fetchCoins('viewed');
   const mostViewedNews = coinMapper(fetchedCoinsByViewed).sort(
@@ -106,7 +121,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ...coin,
       mostViewed: mostViewedNews,
       cotations: cotations.cotations,
-      trades: reducedTrades,
+      trades: tradeGroups,
     },
   };
 };

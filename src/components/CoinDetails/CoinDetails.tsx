@@ -3,10 +3,16 @@ import { ChartTrades } from 'components';
 import * as S from './CoinDetails.styles';
 import { TradesChartData } from 'components/Chart/Chart';
 
+export type GroupKeys = 'USDT' | 'BRL';
+
+export type Groups = {
+  [keys in GroupKeys]: TradesChartData[];
+};
+
 export type CoinDetailsProps = CoinProps & {
   large_description: string;
   short_description: string;
-  trades: TradesChartData[];
+  trades: Groups;
 };
 
 export const CoinDetails = ({
@@ -34,7 +40,13 @@ export const CoinDetails = ({
         </S.CoinBody>
 
         <S.Aside>
-          <ChartTrades trades={trades} />
+          {Object.entries(trades).map(([key, value]) => (
+            <ChartTrades
+              key={key}
+              trades={value}
+              currencyPrefix={key as GroupKeys}
+            />
+          ))}
         </S.Aside>
       </S.Divisor>
     </S.Wrapper>
