@@ -8,7 +8,6 @@ export const tradeMapper = (trades: Trade[]) => {
     ...trade,
     time: dayjs(new Date(trade.time)).format('YYYY-MM-DDTHH:mm'),
     price: parseFloat(trade.price).toString(),
-    height: Number(trade.price),
   }));
 
   return mappedTrades;
