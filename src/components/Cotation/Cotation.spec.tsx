@@ -6,7 +6,7 @@ import * as S from './Cotation.styles';
 
 const props: CotationProps = {
   name: 'BTCUSDT',
-  currentValue: '40000',
+  currentValue: '$ 40000',
   percent: '5',
 };
 
@@ -25,7 +25,13 @@ describe('<Cotation />', () => {
   });
 
   it('should render the right currency prefix', () => {
-    renderWithTheme(<Cotation {...props} name="BTCBRL" />);
+    const item = {
+      name: 'BTCBRL',
+      currentValue: 'R$ 40000',
+      percent: '5',
+    };
+
+    renderWithTheme(<Cotation {...item} />);
 
     expect(screen.getByText('R$ 40000')).toBeInTheDocument();
   });
