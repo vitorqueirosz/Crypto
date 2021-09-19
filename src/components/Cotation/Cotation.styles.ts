@@ -29,7 +29,7 @@ const wrapperModifiers = {
 export const Wrapper = styled.article<WrapperProps>`
   ${({ theme, isPriceLower, isPriceHigher }) => css`
     min-width: 160px;
-    width: 160px;
+    width: 165px;
     background: ${theme.colors.secondary};
     padding: ${theme.spacings['2xs']} ${theme.spacings.xs};
     height: 100%;
@@ -59,6 +59,9 @@ export const Divisor = styled.div`
 
 export const CurrentValue = styled.span`
   color: ${({ theme }) => theme.colors.white};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 4px;
 `;
 
 export const Percent = styled.small`
