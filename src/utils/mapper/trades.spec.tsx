@@ -20,7 +20,7 @@ describe('cotationMapper()', () => {
       {
         id: '1',
         price: '4000',
-        time: '2021-09-17T15:15',
+        time: '17-09-2021 15:15',
         quantity: '5000',
         type: ENUM_TRADE_TYPE.BTCBRL,
       },

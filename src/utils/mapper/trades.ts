@@ -6,7 +6,7 @@ dayjs().format();
 export const tradeMapper = (trades: Trade[]) => {
   const mappedTrades: Trade[] = trades.map((trade) => ({
     ...trade,
-    time: dayjs(new Date(trade.time)).format('YYYY-MM-DDTHH:mm'),
+    time: dayjs(new Date(trade.time)).format('DD-MM-YYYY HH:mm'),
     price: parseFloat(trade.price).toString(),
   }));
 
