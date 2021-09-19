@@ -10,3 +10,4 @@ export * from './Navbar/Navbar';
 export * from './MediaMatch/MediaMatch';
 export * from './CoinDetails/CoinDetails';
 export * from './Chart/Chart';
+export * from './ErrorBoundary/ErrorBoundary';

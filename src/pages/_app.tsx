@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from 'styles/globals';
+import { ErrorBoundary } from 'components';
 import Head from 'next/head';
 import theme from 'styles/theme';
 import { useApollo } from 'hooks';
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta name="description" content="The latest news about Cryptos!" />
         </Head>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
       </ThemeProvider>
     </ApolloProvider>
   );
