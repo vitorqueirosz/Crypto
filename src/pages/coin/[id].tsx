@@ -80,11 +80,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         },
       });
 
-      return data.trades;
+      const sortedTrades = [...data.trades].sort((prevTrade, nextTrade) => {
+        return Number(prevTrade.price) - Number(nextTrade.price);
+      });
+
+      return sortedTrades;
     }),
   );
 
-  const reducedTrades = trades.reduce((acc: TradesChartData[], trade) => {
+  const sortedGroups = trades.sort((prevGroup, nextGroup) => {
+    return Number(prevGroup[0].price) - Number(nextGroup[0].price);
+  });
+
+  const reducedTrades = sortedGroups.reduce((acc: TradesChartData[], trade) => {
     const tradeItem = {
       label: trade[0].type,
       data: tradeMapper(trade),
