@@ -36,6 +36,8 @@ This project was developed with the following technologies:
 - [Apollo Graphql](https://www.apollographql.com)
 - [React Charts](https://github.com/tannerlinsley/react-charts)
 - [React Slick](https://react-slick.neostack.com)
+- [Jest](https://jestjs.io/pt-BR/)
+- [React Testing Library](https://testing-library.com)
 </br>
 
 With ♥ by [Vitor Queiroz](https://www.linkedin.com/in/vitor-queiroz-4b32131a3/)!
