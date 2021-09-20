@@ -2,6 +2,7 @@ import { CoinProps } from 'types/coin';
 import { ChartTrades } from 'components';
 import * as S from './CoinDetails.styles';
 import { TradesChartData } from 'components/Chart/Chart';
+import { formatDate } from 'utils/formatDate';
 
 export type GroupKeys = 'USDT' | 'BRL';
 
@@ -32,7 +33,7 @@ export const CoinDetails = ({
         <S.CoinBody>
           <S.Banner src={image} alt={title} />
           <small>
-            {publisher} - {publishedAt}
+            {publisher} - {formatDate(publishedAt)}
           </small>
 
           <p>{short_description}</p>
